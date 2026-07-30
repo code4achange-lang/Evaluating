@@ -5,25 +5,9 @@ author: "Dhruv Punia"
 date: today
 format:
   html:
-    theme: default
-    css: styles.css
+    theme: cosmo
     toc: false
 ---
-
-<div class="quarto-navbar">
-  <div class="navbar-content">
-    <div class="logo-block">
-      <span class="logo-tag">GOAT Striker</span>
-    </div>
-    <div class="nav-buttons">
-      <a class="nav-button" href="index.html">🏠 Home</a>
-      <a class="nav-button active" href="analysis.html">📊 Analysis</a>
-      <a class="nav-button" href="visualizations.html">📈 Visualizations</a>
-      <a class="nav-button" href="references.html">📚 References</a>
-      <a class="nav-button" href="about.html">👤 About Me</a>
-    </div>
-  </div>
-</div>
 
 ```{r}
 #| echo: false
@@ -37,162 +21,162 @@ library(forcats)
 clean_goals <- read_csv("goalscorers_cleaned.csv", show_col_types = FALSE)
 ```
 
-<main>
-  <section class="section-card">
-    <div class="section-header">
-      <div>
-        <h1 class="section-title">Analysis Dashboard</h1>
-        <p class="section-intro">This report uses scoring volume, career longevity, and open-play quality to identify the strongest case for the greatest international striker.</p>
-      </div>
-      <div class="cta-row">
-        <a class="cta-button" href="visualizations.html">Explore Visualizations</a>
-        <a class="button-secondary" href="references.html">View References</a>
-      </div>
-    </div>
+# Main Question
 
-    <div class="section-description">Three premium analytics cards below present the core evidence in a clean data dashboard style.</div>
-  </section>
+Who is the greatest international striker of all time?
 
-  <section class="section-card">
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">Scoring Volume</h2>
-        <p class="section-intro">Goals are the most direct measure of striker greatness. This view highlights the leading international scorers and shows who dominates purely by output.</p>
-      </div>
-    </div>
+This report uses three simple measures of greatness: scoring volume, longevity, and scoring style. Together, they build a clear and balanced case.
 
-    ```{r}
-    #| echo: false
-    #| warning: false
-    #| message: false
-    ranked_scorers <- clean_goals |>
-      filter(!is.na(scorer)) |>
-      count(scorer, name = "total_goals", sort = TRUE) |>
-      head(8)
+## 1. Scoring volume
 
-    ggplot(ranked_scorers, aes(x = fct_reorder(scorer, total_goals), y = total_goals)) +
-      geom_col(fill = "#4FC3F7", color = "#DCEBFF", width = 0.75) +
-      geom_text(aes(label = total_goals), hjust = -0.18, size = 4, color = "#EAF5FF") +
-      coord_flip() +
-      theme_minimal(base_size = 14) +
-      scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
-      labs(title = NULL, x = NULL, y = "Total Goals") +
-      theme(
-        plot.background = element_rect(fill = "transparent", color = NA),
-        panel.background = element_rect(fill = "transparent", color = NA),
-        plot.title = element_text(face = "bold", size = 18, color = "#FFFFFF"),
-        axis.text = element_text(color = "#E8EEF8"),
-        axis.title = element_text(color = "#D8E2FF", face = "bold"),
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_line(color = "#1A2641"),
-        legend.position = "none"
-      )
-    ```
+The strongest starting point is total goals. A player who dominates this measure has the clearest initial case.
 
-    <div class="chart-caption">The top scorers are the first filter in the search for the greatest striker. High goal totals provide immediate evidence of elite attacking impact.</div>
-  </section>
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+ranked_scorers <- clean_goals |>
+  filter(!is.na(scorer)) |>
+  count(scorer, name = "total_goals", sort = TRUE) |>
+  head(8)
 
-  <section class="section-card">
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">Longevity & Consistency</h2>
-        <p class="section-intro">A durable career matters. This section explores how many years top international scorers remained active at the highest level.</p>
-      </div>
-    </div>
+ggplot(ranked_scorers, aes(x = fct_reorder(scorer, total_goals), y = total_goals)) +
+  geom_col(fill = "#1F4E79", color = "white", width = 0.8) +
+  geom_text(aes(label = total_goals), hjust = -0.15, size = 3.2, color = "#1F4E79") +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(title = "Top International Goalscorers", x = NULL, y = "Total Goals") +
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
+```
 
-    ```{r}
-    #| echo: false
-    #| warning: false
-    #| message: false
-    longevity <- clean_goals |>
-      filter(!is.na(scorer), !is.na(year)) |>
-      group_by(scorer) |>
-      summarise(
-        first_year = min(year),
-        last_year = max(year),
-        years_active = last_year - first_year + 1,
-        .groups = "drop"
-      ) |>
-      arrange(desc(years_active)) |>
-      head(8)
+- The leading player stands out clearly.
+- This is the strongest first indicator of greatness because it measures direct output.
 
-    ggplot(longevity, aes(x = fct_reorder(scorer, years_active), y = years_active)) +
-      geom_col(fill = "#8B5CF6", color = "#EAF5FF", width = 0.75) +
-      geom_text(aes(label = years_active), hjust = -0.18, size = 4, color = "#EAF5FF") +
-      coord_flip() +
-      theme_minimal(base_size = 14) +
-      scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
-      labs(title = NULL, x = NULL, y = "Years Active") +
-      theme(
-        plot.background = element_rect(fill = "transparent", color = NA),
-        panel.background = element_rect(fill = "transparent", color = NA),
-        axis.text = element_text(color = "#E8EEF8"),
-        axis.title = element_text(color = "#D8E2FF", face = "bold"),
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_line(color = "#1A2641"),
-        legend.position = "none"
-      )
-    ```
+## 2. Longevity and consistency
 
-    <div class="chart-caption">Longer careers signal sustained quality. Top scorers who remain productive over many years earn a stronger case for greatness.</div>
-  </section>
+Greatness is not only about a short peak. A long scoring career suggests durability and sustained quality.
 
-  <section class="section-card">
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">Scoring Style</h2>
-        <p class="section-intro">Open-play goals are a key indicator of a striker’s attacking versatility. This measure separates penalty-heavy totals from broader offensive impact.</p>
-      </div>
-    </div>
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+longevity <- clean_goals |>
+  filter(!is.na(scorer), !is.na(year)) |>
+  group_by(scorer) |>
+  summarise(
+    first_year = min(year),
+    last_year = max(year),
+    years_active = last_year - first_year + 1,
+    .groups = "drop"
+  ) |>
+  arrange(desc(years_active)) |>
+  head(8)
 
-    ```{r}
-    #| echo: false
-    #| warning: false
-    #| message: false
-    top_scorers <- clean_goals |>
-      filter(!is.na(scorer)) |>
-      count(scorer, name = "total_goals", sort = TRUE) |>
-      head(8)
+ggplot(longevity, aes(x = fct_reorder(scorer, years_active), y = years_active)) +
+  geom_col(fill = "#2E8B57", color = "white", width = 0.8) +
+  geom_text(aes(label = years_active), hjust = -0.15, size = 3.2, color = "#2E8B57") +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
+  labs(title = "Years Active for the Top Scorers", x = NULL, y = "Years Active") +
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
+```
 
-    style_summary <- clean_goals |>
-      filter(!is.na(scorer), !is.na(goal_type), scorer %in% top_scorers$scorer) |>
-      count(scorer, goal_type, name = "goals") |>
-      group_by(scorer) |>
-      mutate(total_goals = sum(goals)) |>
-      ungroup() |>
-      filter(goal_type == "Open Play") |>
-      mutate(open_play_share = round(100 * goals / total_goals, 1)) |>
-      arrange(desc(open_play_share))
+- The strongest candidates also score over many seasons.
+- Longevity strengthens the case because it shows sustained elite performance.
 
-    ggplot(style_summary, aes(x = fct_reorder(scorer, open_play_share), y = open_play_share)) +
-      geom_col(fill = "#4FC3F7", color = "#EAF5FF", width = 0.75) +
-      geom_text(aes(label = paste0(open_play_share, "%")), hjust = -0.18, size = 4, color = "#EAF5FF") +
-      coord_flip() +
-      theme_minimal(base_size = 14) +
-      scale_y_continuous(expand = expansion(mult = c(0, 0.12)), limits = c(0, 100)) +
-      labs(title = NULL, x = NULL, y = "Open-Play Share (%)") +
-      theme(
-        plot.background = element_rect(fill = "transparent", color = NA),
-        panel.background = element_rect(fill = "transparent", color = NA),
-        axis.text = element_text(color = "#E8EEF8"),
-        axis.title = element_text(color = "#D8E2FF", face = "bold"),
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_line(color = "#1A2641"),
-        legend.position = "none"
-      )
-    ```
+## 3. Scoring style
 
-    <div class="chart-caption">A high share of open-play goals suggests a striker is succeeding in active attacking situations, not only from penalties.</div>
-  </section>
-</main>
+Open-play goals often reflect broader attacking quality than a penalty-heavy profile.
 
-<footer class="footer">
-  <div class="footer-inner">
-    <span>GOAT Striker Analysis</span>
-    <span>Built with Quarto + R</span>
-    <span>© 2026</span>
-  </div>
-</footer>
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+top_scorers <- clean_goals |>
+  filter(!is.na(scorer)) |>
+  count(scorer, name = "total_goals", sort = TRUE) |>
+  head(8)
+
+style_summary <- clean_goals |>
+  filter(!is.na(scorer), !is.na(goal_type), scorer %in% top_scorers$scorer) |>
+  count(scorer, goal_type, name = "goals") |>
+  group_by(scorer) |>
+  mutate(total_goals = sum(goals)) |>
+  ungroup() |>
+  filter(goal_type == "Open Play") |>
+  mutate(open_play_share = round(100 * goals / total_goals, 1)) |>
+  arrange(desc(open_play_share))
+
+ggplot(style_summary, aes(x = fct_reorder(scorer, open_play_share), y = open_play_share)) +
+  geom_col(fill = "#C0392B", color = "white", width = 0.8) +
+  geom_text(aes(label = paste0(open_play_share, "%")), hjust = -0.15, size = 3.2, color = "#C0392B") +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15)), limits = c(0, 100)) +
+  labs(title = "Open-Play Share for Leading Scorers", x = NULL, y = "Open-Play Share (%)") +
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
+```
+
+- The leading scorers are mostly built on open-play production.
+- That makes the case for true striker quality stronger.
+
+## Final takeaway
+
+The best overall answer is the player who combines:
+
+- the highest scoring total,
+- the longest sustained career,
+- and the strongest open-play profile.
+
+That combination offers the clearest evidence for being the greatest international striker of all time.
+
+## About the Author
+
+::: {.callout-note}
+**Name:** [Dhruv Punia]  
+**School:** [Central Jersey College Prep]  
+**Grade:** [Rising 9th grader]
+
+**Wh
+y I chose this project:** I chose this project because it allowed me to explore a familiar sports question through data and visualization.
+
+**What I learned:**
+- How to clean and analyze a real dataset in R
+- How to create clear charts that support a claim
+- How to present findings in a concise Quarto report
+:::
+
+## References
+
+Goalscorers dataset. (n.d.). Unpublished dataset used for this project.
+
+R Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/
+
+Wickham, H., et al. (2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse
+
+Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/
+
+Allaire, J. J., et al. (2024). Quarto. https://quarto.org/
+
+Wickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr
+
+Wickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr
+
+Wickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats
