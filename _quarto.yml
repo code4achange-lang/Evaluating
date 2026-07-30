@@ -18,12 +18,6 @@ website:
       - section: "Report"
         contents:
           - analysis.qmd
-      - section: "Sections"
-        contents:
-          - analysis.qmd#executive-summary
-          - analysis.qmd#dataset-overview
-          - analysis.qmd#visual-evidence-and-comparative-analysis
-          - analysis.qmd#final-evidence-based-conclusion
 format:
   html:
     theme: cosmo
