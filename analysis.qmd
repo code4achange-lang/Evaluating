@@ -89,7 +89,7 @@ The dataset records every international goal scored by an attacking player. In t
 
 ```{r}
 #| echo: false
-#| results:asis
+#| results: asis
 knitr::kable(
   top_candidates |>
     select(scorer, team, total_goals, active_years, open_play_share, penalty_share) |>
