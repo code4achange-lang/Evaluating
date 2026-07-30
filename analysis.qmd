@@ -1,0 +1,140 @@
+---
+title: "Who Is the Greatest International Striker of All Time?"
+subtitle: "A concise, data-led presentation"
+author: "Dhruv Punia"
+date: today
+format:
+  html:
+    theme: cosmo
+    toc: false
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(forcats)
+
+clean_goals <- read_csv("goalscorers_cleaned.csv", show_col_types = FALSE)
+```
+
+# Main Question
+
+Who is the greatest international striker of all time?
+
+## 1. Scoring volume
+
+The clearest starting point is total international goals, because it captures the most direct measure of scoring impact.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+ranked_scorers <- clean_goals |>
+  filter(!is.na(scorer)) |>
+  count(scorer, name = "total_goals", sort = TRUE) |>
+  head(10)
+
+ggplot(ranked_scorers, aes(x = fct_reorder(scorer, total_goals), y = total_goals)) +
+  geom_col(fill = "#2C3E50", color = "white", width = 0.8) +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  labs(title = "Top International Goalscorers", x = NULL, y = "Total Goals") +
+  theme(panel.grid.minor = element_blank())
+```
+
+This chart shows that one player clearly dominates the scoring record in the dataset. A striker with the highest total goals has the strongest initial case for being the greatest. The bar chart is useful because it turns a subjective debate into a simple, visible comparison.
+
+Conclusion: Scoring volume is the strongest first piece of evidence because it measures output directly.
+
+## 2. Longevity and consistency
+
+Greatness is not only about a short peak; it also depends on how long a player can sustain elite scoring.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+longevity <- clean_goals |>
+  filter(!is.na(scorer), !is.na(year)) |>
+  group_by(scorer) |>
+  summarise(
+    first_year = min(year),
+    last_year = max(year),
+    years_active = last_year - first_year + 1,
+    .groups = "drop"
+  ) |>
+  arrange(desc(years_active)) |>
+  head(10)
+
+ggplot(longevity, aes(x = fct_reorder(scorer, years_active), y = years_active)) +
+  geom_col(fill = "#1F77B4", color = "white", width = 0.8) +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  labs(title = "Years Active for the Top Scorers", x = NULL, y = "Years Active") +
+  theme(panel.grid.minor = element_blank())
+```
+
+This plot shows that the strongest candidates also have long careers in the data. A player who scores over many seasons is harder to dismiss than one who produces only in a short burst. Longevity strengthens the case for greatness because it suggests sustained elite performance rather than a temporary peak.
+
+Conclusion: A long scoring career makes the case for greatness stronger because it shows durability over time.
+
+## 3. Scoring style
+
+A striker’s profile also matters, because goals from open play often suggest broader attacking quality than a penalty-heavy record.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+top_scorers <- clean_goals |>
+  filter(!is.na(scorer)) |>
+  count(scorer, name = "total_goals", sort = TRUE) |>
+  head(8)
+
+style_summary <- clean_goals |>
+  filter(!is.na(scorer), !is.na(goal_type), scorer %in% top_scorers$scorer) |>
+  count(scorer, goal_type, name = "goals") |>
+  group_by(scorer) |>
+  mutate(total_goals = sum(goals)) |>
+  ungroup() |>
+  filter(goal_type == "Open Play") |>
+  mutate(open_play_share = round(100 * goals / total_goals, 1)) |>
+  arrange(desc(open_play_share))
+
+ggplot(style_summary, aes(x = fct_reorder(scorer, open_play_share), y = open_play_share)) +
+  geom_col(fill = "#E74C3C", color = "white", width = 0.8) +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  labs(title = "Open-Play Share for Leading Scorers", x = NULL, y = "Open-Play Share (%)") +
+  theme(panel.grid.minor = element_blank())
+```
+
+This chart shows that the leading scorers are mostly built on open-play production rather than a narrow penalty-based profile. That matters because open-play goals often reflect broader attacking skill and quality. A striker whose total comes from general play looks more complete than one whose record depends heavily on penalties.
+
+Conclusion: A scoring profile built on open-play goals is stronger evidence of true striker quality.
+
+## Final takeaway
+
+Taken together, the data supports the player with the highest total goals, the longest sustained scoring career, and the strongest scoring profile. That combination gives the best evidence for who is the greatest international striker of all time.
+
+## References
+
+Goalscorers dataset. (n.d.). Unpublished dataset used for this project.
+
+R Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/
+
+Wickham, H., et al. (2023). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse
+
+Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/
+
+Allaire, J. J., et al. (2024). Quarto. https://quarto.org/
+
+Wickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr
+
+Wickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr
+
+Wickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats

@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "GOAT Striker Analysis"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Analysis"
+        href: analysis.qmd
+      - text: "About"
+        href: about.qmd
+  sidebar:
+    style: "docked"
+    contents:
+      - section: "Report"
+        contents:
+          - analysis.qmd
+      - section: "Sections"
+        contents:
+          - analysis.qmd#executive-summary
+          - analysis.qmd#dataset-overview
+          - analysis.qmd#visual-evidence-and-comparative-analysis
+          - analysis.qmd#final-evidence-based-conclusion
+format:
+  html:
+    theme: cosmo
+    toc: true
