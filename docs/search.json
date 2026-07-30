@@ -1,10 +1,17 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "GOAT Striker Analysis",
+    "section": "",
+    "text": "Welcome to the analysis website for the international striker project.\nThis site presents a concise data-driven argument for who is the greatest international striker of all time.\n\nView the full report in Analysis\nLearn more in About"
+  },
+  {
     "objectID": "analysis.html",
     "href": "analysis.html",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "Who is the greatest international striker of all time?\n\n\nThe clearest starting point is total international goals, because it captures the most direct measure of scoring impact.\n\n\n\n\n\n\n\n\n\nThis chart shows that one player clearly dominates the scoring record in the dataset. A striker with the highest total goals has the strongest initial case for being the greatest. The bar chart is useful because it turns a subjective debate into a simple, visible comparison.\nConclusion: Scoring volume is the strongest first piece of evidence because it measures output directly.\n\n\n\nGreatness is not only about a short peak; it also depends on how long a player can sustain elite scoring.\n\n\n\n\n\n\n\n\n\nThis plot shows that the strongest candidates also have long careers in the data. A player who scores over many seasons is harder to dismiss than one who produces only in a short burst. Longevity strengthens the case for greatness because it suggests sustained elite performance rather than a temporary peak.\nConclusion: A long scoring career makes the case for greatness stronger because it shows durability over time.\n\n\n\nA striker’s profile also matters, because goals from open play often suggest broader attacking quality than a penalty-heavy record.\n\n\n\n\n\n\n\n\n\nThis chart shows that the leading scorers are mostly built on open-play production rather than a narrow penalty-based profile. That matters because open-play goals often reflect broader attacking skill and quality. A striker whose total comes from general play looks more complete than one whose record depends heavily on penalties.\nConclusion: A scoring profile built on open-play goals is stronger evidence of true striker quality.\n\n\n\nTaken together, the data supports the player with the highest total goals, the longest sustained scoring career, and the strongest scoring profile. That combination gives the best evidence for who is the greatest international striker of all time.\n\n\n\nGoalscorers dataset. (n.d.). Unpublished dataset used for this project.\nR Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/\nWickham, H., et al. (2023). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse\nWickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/\nAllaire, J. J., et al. (2024). Quarto. https://quarto.org/\nWickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr\nWickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr\nWickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats",
+    "text": "Who is the greatest international striker of all time?\nThis report uses three simple measures of greatness: scoring volume, longevity, and scoring style. Together, they build a clear and balanced case.\n\n\nThe strongest starting point is total goals. A player who dominates this measure has the clearest initial case.\n\n\n\n\n\n\n\n\n\n\nThe leading player stands out clearly.\nThis is the strongest first indicator of greatness because it measures direct output.\n\n\n\n\nGreatness is not only about a short peak. A long scoring career suggests durability and sustained quality.\n\n\n\n\n\n\n\n\n\n\nThe strongest candidates also score over many seasons.\nLongevity strengthens the case because it shows sustained elite performance.\n\n\n\n\nOpen-play goals often reflect broader attacking quality than a penalty-heavy profile.\n\n\n\n\n\n\n\n\n\n\nThe leading scorers are mostly built on open-play production.\nThat makes the case for true striker quality stronger.\n\n\n\n\nThe best overall answer is the player who combines:\n\nthe highest scoring total,\nthe longest sustained career,\nand the strongest open-play profile.\n\nThat combination offers the clearest evidence for being the greatest international striker of all time.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nName: [Placeholder]\nSchool: [Placeholder]\nGrade: [Placeholder]\nWhy I chose this project: I chose this project because it allowed me to explore a familiar sports question through data and visualization.\nWhat I learned: - How to clean and analyze a real dataset in R - How to create clear charts that support a claim - How to present findings in a concise Quarto report\n\n\n\n\n\nGoalscorers dataset. (n.d.). Unpublished dataset used for this project.\nR Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/\nWickham, H., et al. (2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse\nWickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/\nAllaire, J. J., et al. (2024). Quarto. https://quarto.org/\nWickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr\nWickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr\nWickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats",
     "crumbs": [
       "Home",
       "Report",
@@ -16,7 +23,7 @@
     "href": "analysis.html#scoring-volume",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "The clearest starting point is total international goals, because it captures the most direct measure of scoring impact.\n\n\n\n\n\n\n\n\n\nThis chart shows that one player clearly dominates the scoring record in the dataset. A striker with the highest total goals has the strongest initial case for being the greatest. The bar chart is useful because it turns a subjective debate into a simple, visible comparison.\nConclusion: Scoring volume is the strongest first piece of evidence because it measures output directly.",
+    "text": "The strongest starting point is total goals. A player who dominates this measure has the clearest initial case.\n\n\n\n\n\n\n\n\n\n\nThe leading player stands out clearly.\nThis is the strongest first indicator of greatness because it measures direct output.",
     "crumbs": [
       "Home",
       "Report",
@@ -28,7 +35,7 @@
     "href": "analysis.html#longevity-and-consistency",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "Greatness is not only about a short peak; it also depends on how long a player can sustain elite scoring.\n\n\n\n\n\n\n\n\n\nThis plot shows that the strongest candidates also have long careers in the data. A player who scores over many seasons is harder to dismiss than one who produces only in a short burst. Longevity strengthens the case for greatness because it suggests sustained elite performance rather than a temporary peak.\nConclusion: A long scoring career makes the case for greatness stronger because it shows durability over time.",
+    "text": "Greatness is not only about a short peak. A long scoring career suggests durability and sustained quality.\n\n\n\n\n\n\n\n\n\n\nThe strongest candidates also score over many seasons.\nLongevity strengthens the case because it shows sustained elite performance.",
     "crumbs": [
       "Home",
       "Report",
@@ -40,7 +47,7 @@
     "href": "analysis.html#scoring-style",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "A striker’s profile also matters, because goals from open play often suggest broader attacking quality than a penalty-heavy record.\n\n\n\n\n\n\n\n\n\nThis chart shows that the leading scorers are mostly built on open-play production rather than a narrow penalty-based profile. That matters because open-play goals often reflect broader attacking skill and quality. A striker whose total comes from general play looks more complete than one whose record depends heavily on penalties.\nConclusion: A scoring profile built on open-play goals is stronger evidence of true striker quality.",
+    "text": "Open-play goals often reflect broader attacking quality than a penalty-heavy profile.\n\n\n\n\n\n\n\n\n\n\nThe leading scorers are mostly built on open-play production.\nThat makes the case for true striker quality stronger.",
     "crumbs": [
       "Home",
       "Report",
@@ -52,7 +59,19 @@
     "href": "analysis.html#final-takeaway",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "Taken together, the data supports the player with the highest total goals, the longest sustained scoring career, and the strongest scoring profile. That combination gives the best evidence for who is the greatest international striker of all time.",
+    "text": "The best overall answer is the player who combines:\n\nthe highest scoring total,\nthe longest sustained career,\nand the strongest open-play profile.\n\nThat combination offers the clearest evidence for being the greatest international striker of all time.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#about-the-author",
+    "href": "analysis.html#about-the-author",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "",
+    "text": "Note\n\n\n\nName: [Placeholder]\nSchool: [Placeholder]\nGrade: [Placeholder]\nWhy I chose this project: I chose this project because it allowed me to explore a familiar sports question through data and visualization.\nWhat I learned: - How to clean and analyze a real dataset in R - How to create clear charts that support a claim - How to present findings in a concise Quarto report",
     "crumbs": [
       "Home",
       "Report",
@@ -64,11 +83,18 @@
     "href": "analysis.html#references",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "Goalscorers dataset. (n.d.). Unpublished dataset used for this project.\nR Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/\nWickham, H., et al. (2023). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse\nWickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/\nAllaire, J. J., et al. (2024). Quarto. https://quarto.org/\nWickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr\nWickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr\nWickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats",
+    "text": "Goalscorers dataset. (n.d.). Unpublished dataset used for this project.\nR Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/\nWickham, H., et al. (2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse\nWickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/\nAllaire, J. J., et al. (2024). Quarto. https://quarto.org/\nWickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr\nWickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr\nWickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats",
     "crumbs": [
       "Home",
       "Report",
       "Who Is the Greatest International Striker of All Time?"
     ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This project explores a sports question through data visualization and simple statistical evidence.\nIt uses a cleaned goalscorers dataset and a short Quarto report to present the argument clearly and professionally."
   }
 ]

@@ -41,13 +41,18 @@ ranked_scorers <- clean_goals |>
   head(8)
 
 ggplot(ranked_scorers, aes(x = fct_reorder(scorer, total_goals), y = total_goals)) +
-  geom_col(fill = "#2C3E50", color = "white", width = 0.8) +
-  geom_text(aes(label = total_goals), hjust = -0.15, size = 3.2, color = "#2C3E50") +
+  geom_col(fill = "#1F4E79", color = "white", width = 0.8) +
+  geom_text(aes(label = total_goals), hjust = -0.15, size = 3.2, color = "#1F4E79") +
   coord_flip() +
   theme_minimal(base_size = 13) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(title = "Top International Goalscorers", x = NULL, y = "Total Goals") +
-  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank())
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
 ```
 
 - The leading player stands out clearly.
@@ -74,13 +79,18 @@ longevity <- clean_goals |>
   head(8)
 
 ggplot(longevity, aes(x = fct_reorder(scorer, years_active), y = years_active)) +
-  geom_col(fill = "#1F77B4", color = "white", width = 0.8) +
-  geom_text(aes(label = years_active), hjust = -0.15, size = 3.2, color = "#1F77B4") +
+  geom_col(fill = "#2E8B57", color = "white", width = 0.8) +
+  geom_text(aes(label = years_active), hjust = -0.15, size = 3.2, color = "#2E8B57") +
   coord_flip() +
   theme_minimal(base_size = 13) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.15))) +
   labs(title = "Years Active for the Top Scorers", x = NULL, y = "Years Active") +
-  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank())
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
 ```
 
 - The strongest candidates also score over many seasons.
@@ -110,13 +120,18 @@ style_summary <- clean_goals |>
   arrange(desc(open_play_share))
 
 ggplot(style_summary, aes(x = fct_reorder(scorer, open_play_share), y = open_play_share)) +
-  geom_col(fill = "#E74C3C", color = "white", width = 0.8) +
-  geom_text(aes(label = paste0(open_play_share, "%")), hjust = -0.15, size = 3.2, color = "#E74C3C") +
+  geom_col(fill = "#C0392B", color = "white", width = 0.8) +
+  geom_text(aes(label = paste0(open_play_share, "%")), hjust = -0.15, size = 3.2, color = "#C0392B") +
   coord_flip() +
   theme_minimal(base_size = 13) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.15)), limits = c(0, 100)) +
   labs(title = "Open-Play Share for Leading Scorers", x = NULL, y = "Open-Play Share (%)") +
-  theme(panel.grid.minor = element_blank(), panel.grid.major.y = element_blank())
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
 ```
 
 - The leading scorers are mostly built on open-play production.

@@ -1,0 +1,11 @@
+---
+title: "About"
+format:
+  html:
+    theme: cosmo
+    toc: false
+---
+
+This project explores a sports question through data visualization and simple statistical evidence.
+
+It uses a cleaned goalscorers dataset and a short Quarto report to present the argument clearly and professionally.

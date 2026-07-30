@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.qmd"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.qmd"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -212,9 +212,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="main-question" class="level1">
 <h1>Main Question</h1>
 <p>Who is the greatest international striker of all time?</p>
+<p>This report uses three simple measures of greatness: scoring volume, longevity, and scoring style. Together, they build a clear and balanced case.</p>
 <section id="scoring-volume" class="level2">
 <h2 class="anchored" data-anchor-id="scoring-volume">1. Scoring volume</h2>
-<p>The clearest starting point is total international goals, because it captures the most direct measure of scoring impact.</p>
+<p>The strongest starting point is total goals. A player who dominates this measure has the clearest initial case.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -224,12 +225,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>This chart shows that one player clearly dominates the scoring record in the dataset. A striker with the highest total goals has the strongest initial case for being the greatest. The bar chart is useful because it turns a subjective debate into a simple, visible comparison.</p>
-<p>Conclusion: Scoring volume is the strongest first piece of evidence because it measures output directly.</p>
+<ul>
+<li>The leading player stands out clearly.</li>
+<li>This is the strongest first indicator of greatness because it measures direct output.</li>
+</ul>
 </section>
 <section id="longevity-and-consistency" class="level2">
 <h2 class="anchored" data-anchor-id="longevity-and-consistency">2. Longevity and consistency</h2>
-<p>Greatness is not only about a short peak; it also depends on how long a player can sustain elite scoring.</p>
+<p>Greatness is not only about a short peak. A long scoring career suggests durability and sustained quality.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -239,12 +242,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>This plot shows that the strongest candidates also have long careers in the data. A player who scores over many seasons is harder to dismiss than one who produces only in a short burst. Longevity strengthens the case for greatness because it suggests sustained elite performance rather than a temporary peak.</p>
-<p>Conclusion: A long scoring career makes the case for greatness stronger because it shows durability over time.</p>
+<ul>
+<li>The strongest candidates also score over many seasons.</li>
+<li>Longevity strengthens the case because it shows sustained elite performance.</li>
+</ul>
 </section>
 <section id="scoring-style" class="level2">
 <h2 class="anchored" data-anchor-id="scoring-style">3. Scoring style</h2>
-<p>A striker’s profile also matters, because goals from open play often suggest broader attacking quality than a penalty-heavy record.</p>
+<p>Open-play goals often reflect broader attacking quality than a penalty-heavy profile.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -254,22 +259,50 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>This chart shows that the leading scorers are mostly built on open-play production rather than a narrow penalty-based profile. That matters because open-play goals often reflect broader attacking skill and quality. A striker whose total comes from general play looks more complete than one whose record depends heavily on penalties.</p>
-<p>Conclusion: A scoring profile built on open-play goals is stronger evidence of true striker quality.</p>
+<ul>
+<li>The leading scorers are mostly built on open-play production.</li>
+<li>That makes the case for true striker quality stronger.</li>
+</ul>
 </section>
 <section id="final-takeaway" class="level2">
 <h2 class="anchored" data-anchor-id="final-takeaway">Final takeaway</h2>
-<p>Taken together, the data supports the player with the highest total goals, the longest sustained scoring career, and the strongest scoring profile. That combination gives the best evidence for who is the greatest international striker of all time.</p>
+<p>The best overall answer is the player who combines:</p>
+<ul>
+<li>the highest scoring total,</li>
+<li>the longest sustained career,</li>
+<li>and the strongest open-play profile.</li>
+</ul>
+<p>That combination offers the clearest evidence for being the greatest international striker of all time.</p>
+</section>
+<section id="about-the-author" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-author">About the Author</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Name:</strong> [Placeholder]<br>
+<strong>School:</strong> [Placeholder]<br>
+<strong>Grade:</strong> [Placeholder]</p>
+<p><strong>Why I chose this project:</strong> I chose this project because it allowed me to explore a familiar sports question through data and visualization.</p>
+<p><strong>What I learned:</strong> - How to clean and analyze a real dataset in R - How to create clear charts that support a claim - How to present findings in a concise Quarto report</p>
+</div>
+</div>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>Goalscorers dataset. (n.d.). Unpublished dataset used for this project.</p>
 <p>R Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/</p>
-<p>Wickham, H., et al.&nbsp;(2023). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse</p>
+<p>Wickham, H., et al.&nbsp;(2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse</p>
 <p>Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/</p>
 <p>Allaire, J. J., et al.&nbsp;(2024). Quarto. https://quarto.org/</p>
-<p>Wickham, H., et al.&nbsp;(2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr</p>
 <p>Wickham, H., et al.&nbsp;(2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr</p>
+<p>Wickham, H., et al.&nbsp;(2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr</p>
 <p>Wickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats</p>
 
 

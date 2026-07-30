@@ -1,0 +1,14 @@
+---
+title: "GOAT Striker Analysis"
+format:
+  html:
+    theme: cosmo
+    toc: false
+---
+
+Welcome to the analysis website for the international striker project.
+
+This site presents a concise data-driven argument for who is the greatest international striker of all time.
+
+- View the full report in [Analysis](analysis.qmd)
+- Learn more in [About](about.qmd)
