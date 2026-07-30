@@ -1,11 +1,79 @@
 ---
-title: "About"
+title: "About Me"
 format:
   html:
-    theme: cosmo
+    theme: default
+    css: styles.css
     toc: false
 ---
 
-This project explores a sports question through data visualization and simple statistical evidence.
+<div class="quarto-navbar">
+  <div class="navbar-content">
+    <div class="logo-block">
+      <span class="logo-tag">GOAT Striker</span>
+    </div>
+    <div class="nav-buttons">
+      <a class="nav-button" href="index.html">🏠 Home</a>
+      <a class="nav-button" href="analysis.html">📊 Analysis</a>
+      <a class="nav-button" href="visualizations.html">📈 Visualizations</a>
+      <a class="nav-button" href="references.html">📚 References</a>
+      <a class="nav-button active" href="about.html">👤 About Me</a>
+    </div>
+  </div>
+</div>
 
-It uses a cleaned goalscorers dataset and a short Quarto report to present the argument clearly and professionally.
+<main>
+  <section class="section-card">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">About the Analyst</h1>
+        <p class="section-intro">A premium portfolio page for a modern data science project built around international soccer analytics and elegant dashboard design.</p>
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <div>
+          <strong>Profile Image</strong>
+          <p>Placeholder</p>
+        </div>
+      </div>
+
+      <div class="profile-details">
+        <div>
+          <h2 class="profile-heading">Dhruv Punia</h2>
+          <div class="profile-meta">Central Jersey College Prep • Rising 9th grader</div>
+        </div>
+
+        <p class="profile-copy">This project blends sports analytics with a modern website aesthetic to answer a high-interest question using data. The site uses polished visuals, clear storytelling, and responsive page design to make the findings feel professional and futuristic.</p>
+
+        <div class="profile-grid">
+          <div class="profile-badge">
+            <h3 class="profile-badge-title">Skills Learned</h3>
+            <p>Data cleaning, chart design, tidyverse analysis, Quarto publishing, and web-style presentation.</p>
+          </div>
+          <div class="profile-badge">
+            <h3 class="profile-badge-title">Future Goals</h3>
+            <p>Continue building data portfolio projects with stronger storytelling, more advanced analytics, and visually compelling UI experiences.</p>
+          </div>
+          <div class="profile-badge">
+            <h3 class="profile-badge-title">Project Strength</h3>
+            <p>Combining objective metrics with a polished modern design gives this project a professional analytics dashboard feel.</p>
+          </div>
+          <div class="profile-badge">
+            <h3 class="profile-badge-title">Design Style</h3>
+            <p>Galaxy-inspired gradients, glass panels, subtle animations, and crisp spacing make the site feel premium.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>GOAT Striker Analysis</span>
+    <span>Built with Quarto + R</span>
+    <span>© 2026</span>
+  </div>
+</footer>

@@ -2,13 +2,81 @@
 title: "GOAT Striker Analysis"
 format:
   html:
-    theme: cosmo
+    theme: default
+    css: styles.css
     toc: false
 ---
 
-Welcome to the analysis website for the international striker project.
+<div class="quarto-navbar">
+  <div class="navbar-content">
+    <div class="logo-block">
+      <span class="logo-tag">GOAT Striker</span>
+    </div>
+    <div class="nav-buttons">
+      <a class="nav-button active" href="index.html">🏠 Home</a>
+      <a class="nav-button" href="analysis.html">📊 Analysis</a>
+      <a class="nav-button" href="visualizations.html">📈 Visualizations</a>
+      <a class="nav-button" href="references.html">📚 References</a>
+      <a class="nav-button" href="about.html">👤 About Me</a>
+    </div>
+  </div>
+</div>
 
-This site presents a concise data-driven argument for who is the greatest international striker of all time.
+<main>
+  <section class="hero-section">
+    <div class="decorative-glow top-left"></div>
+    <div class="decorative-glow bottom-right"></div>
+    <div class="decorative-star" style="top: 18%; left: 14%;"></div>
+    <div class="decorative-star" style="top: 24%; left: 67%; width: 10px; height: 10px;"></div>
+    <div class="decorative-star" style="top: 63%; left: 30%; width: 7px; height: 7px;"></div>
+    <div class="decorative-circle small" style="top: 10%; right: 16%;"></div>
+    <div class="decorative-circle large" style="bottom: 8%; left: 12%;"></div>
 
-- View the full report in [Analysis](analysis.qmd)
-- Learn more in [About](about.qmd)
+    <div class="hero-panel">
+      <div class="hero-eyebrow">Galactic Sports Analytics</div>
+      <h1 class="hero-title">Who is the Greatest International Soccer Striker of All Time?</h1>
+      <p class="hero-subtitle">An evidence-based statistical analysis using international goalscoring data. This site is designed as a modern analytics dashboard with premium insight cards, polished metrics, and responsive visual storytelling.</p>
+
+      <div class="hero-actions">
+        <a class="cta-button" href="analysis.html">Explore Analysis</a>
+        <a class="button-secondary" href="visualizations.html">View Visualizations</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Explore the Data Story</h2>
+        <p class="section-intro">Start with the strongest evidence: goals scored, career longevity, and open-play dominance. Every section is presented like a premium dashboard card, built for clarity and visual impact.</p>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="profile-badge">
+        <h3 class="profile-badge-title">Report Focus</h3>
+        <p>Isolate the greatest international striker using scoring volume, consistency, and playing style.</p>
+      </div>
+      <div class="profile-badge">
+        <h3 class="profile-badge-title">Design Goal</h3>
+        <p>Build a futuristic analytics portfolio with galaxy-inspired UI, glassmorphism, and polished chart presentation.</p>
+      </div>
+      <div class="profile-badge">
+        <h3 class="profile-badge-title">User Experience</h3>
+        <p>Navigation and layout are built for fast access, smooth scrolling, and an immersive data dashboard feel.</p>
+      </div>
+      <div class="profile-badge">
+        <h3 class="profile-badge-title">Technical Stack</h3>
+        <p>Quarto + R for analytics, with custom CSS and modern web layout for a premium portfolio presentation.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>GOAT Striker Analysis</span>
+    <span>Built with Quarto + R</span>
+    <span>© 2026</span>
+  </div>
+</footer>

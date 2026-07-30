@@ -1,0 +1,72 @@
+---
+title: "References"
+format:
+  html:
+    theme: default
+    css: styles.css
+    toc: false
+---
+
+<div class="quarto-navbar">
+  <div class="navbar-content">
+    <div class="logo-block">
+      <span class="logo-tag">GOAT Striker</span>
+    </div>
+    <div class="nav-buttons">
+      <a class="nav-button" href="index.html">🏠 Home</a>
+      <a class="nav-button" href="analysis.html">📊 Analysis</a>
+      <a class="nav-button" href="visualizations.html">📈 Visualizations</a>
+      <a class="nav-button active" href="references.html">📚 References</a>
+      <a class="nav-button" href="about.html">👤 About Me</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="section-card">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">References</h1>
+        <p class="section-intro">A premium reference section with organized source cards for the data sources, R packages, and tools used in this project.</p>
+      </div>
+      <div class="cta-row">
+        <a class="cta-button" href="analysis.html">Back to Analysis</a>
+      </div>
+    </div>
+
+    <div class="reference-panel">
+      <details class="reference-item" open>
+        <summary>Goalscorers Dataset</summary>
+        <p>The dataset contains international goal records used to evaluate top strikers across decades. It is the primary source for all charts and analytics in this report.</p>
+      </details>
+
+      <details class="reference-item">
+        <summary>R Core Team (2024)</summary>
+        <p>R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/</p>
+      </details>
+
+      <details class="reference-item">
+        <summary>tidyverse</summary>
+        <p>Wickham, H., et al. (2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse</p>
+      </details>
+
+      <details class="reference-item">
+        <summary>ggplot2</summary>
+        <p>Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/</p>
+      </details>
+
+      <details class="reference-item">
+        <summary>Quarto</summary>
+        <p>Allaire, J. J., et al. (2024). Quarto. https://quarto.org/</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>GOAT Striker Analysis</span>
+    <span>Built with Quarto + R</span>
+    <span>© 2026</span>
+  </div>
+</footer>
