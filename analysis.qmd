@@ -150,11 +150,12 @@ That combination offers the clearest evidence for being the greatest internation
 ## About the Author
 
 ::: {.callout-note}
-**Name:** [Placeholder]  
-**School:** [Placeholder]  
-**Grade:** [Placeholder]
+**Name:** [Dhruv Punia]  
+**School:** [Central Jersey College Prep]  
+**Grade:** [Rising 9th grader]
 
-**Why I chose this project:** I chose this project because it allowed me to explore a familiar sports question through data and visualization.
+**Wh
+y I chose this project:** I chose this project because it allowed me to explore a familiar sports question through data and visualization.
 
 **What I learned:**
 - How to clean and analyze a real dataset in R
