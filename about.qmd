@@ -6,6 +6,45 @@ format:
     toc: false
 ---
 
-This project explores a sports question through data visualization and simple statistical evidence.
+# About this Project
 
-It uses a cleaned goalscorers dataset and a short Quarto report to present the argument clearly and professionally.
+This project is a sports analytics investigation that asks a focused question: who is the greatest international soccer striker of all time?
+
+## What the data contains
+
+The dataset records every international goal by scorer, including:
+
+- match date,
+- national team,
+- scorer name,
+- goal minute,
+- penalty status,
+- goal type,
+- year and decade.
+
+Each row is one goal, which means the analysis is built from the goals themselves rather than from match summaries.
+
+## How the analysis works
+
+The report evaluates the candidates with a professional lens:
+
+- raw scoring volume,
+- scoring quality through open-play share,
+- career consistency and efficiency,
+- era context,
+- a composite GOAT ranking model.
+
+## Why this matters
+
+Greatest-striker discussions are common in soccer, but a strong analytic argument requires more than a leaderboard. This project emphasizes evidence, transparency, and the limits of the available data.
+
+## What is not shown
+
+The current dataset does not include every context needed for a final historical judgement:
+
+- minutes played,
+- number of caps,
+- opponent strength,
+- match importance.
+
+Those are valuable next steps for a deeper version of this project.

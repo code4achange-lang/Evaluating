@@ -6,9 +6,34 @@ format:
     toc: false
 ---
 
-Welcome to the analysis website for the international striker project.
+# GOAT Striker Investigation
 
-This site presents a concise data-driven argument for who is the greatest international striker of all time.
+This five-minute analytics pitch is built like a professional sports investigation. It follows a clear storyline that separates raw numbers from real striker quality.
 
-- View the full report in [Analysis](analysis.qmd)
-- Learn more in [About](about.qmd)
+## What this site delivers
+
+- A sharp introduction to the research question.
+- A diagnosis of why total international goals is a limited ranking tool.
+- A deeper look at scoring ability, efficiency, and era context.
+- A composite GOAT ranking model based on evidence.
+- A balanced recommendation and next-step caveats.
+
+## Follow the story
+
+- [Introduction / Hook](analysis.qmd#introduction-hook)
+- [Why total goals is not enough](analysis.qmd#why-total-goals-is-not-enough)
+- [Measuring scoring ability](analysis.qmd#measuring-scoring-ability)
+- [Measuring efficiency](analysis.qmd#measuring-efficiency)
+- [Comparing eras](analysis.qmd#comparing-eras)
+- [Creating a GOAT ranking model](analysis.qmd#creating-a-goat-ranking-model)
+- [Final conclusion](analysis.qmd#final-conclusion)
+
+## Why this question matters
+
+International goals are the most visible striker metric, but the greatest striker also combines:
+
+- consistent impact,
+- high-quality scoring,
+- and strong performance across different eras.
+
+The rest of the site turns that professional view into a data story.

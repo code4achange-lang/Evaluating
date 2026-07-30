@@ -1,37 +1,100 @@
 [
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "GOAT Striker Analysis",
     "section": "",
-    "text": "&lt;div class=\"logo-block\"&gt;\n  &lt;span class=\"logo-tag\"&gt;GOAT Striker&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\"nav-buttons\"&gt;\n  &lt;a class=\"nav-button\" href=\"index.html\"&gt;🏠 Home&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"analysis.html\"&gt;📊 Analysis&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"visualizations.html\"&gt;📈 Visualizations&lt;/a&gt;\n  &lt;a class=\"nav-button active\" href=\"references.html\"&gt;📚 References&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"about.html\"&gt;👤 About Me&lt;/a&gt;\n&lt;/div&gt;\n\n\n\n\n\n  &lt;div&gt;\n    &lt;h1 class=\"section-title\"&gt;References&lt;/h1&gt;\n    &lt;p class=\"section-intro\"&gt;A premium reference section with organized source cards for the data sources, R packages, and tools used in this project.&lt;/p&gt;\n  &lt;/div&gt;\n  &lt;div class=\"cta-row\"&gt;\n    &lt;a class=\"cta-button\" href=\"analysis.html\"&gt;Back to Analysis&lt;/a&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"reference-panel\"&gt;\n  &lt;details class=\"reference-item\" open&gt;\n    &lt;summary&gt;Goalscorers Dataset&lt;/summary&gt;\n    &lt;p&gt;The dataset contains international goal records used to evaluate top strikers across decades. It is the primary source for all charts and analytics in this report.&lt;/p&gt;\n  &lt;/details&gt;\n\n  &lt;details class=\"reference-item\"&gt;\n    &lt;summary&gt;R Core Team (2024)&lt;/summary&gt;\n    &lt;p&gt;R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/&lt;/p&gt;\n  &lt;/details&gt;\n\n  &lt;details class=\"reference-item\"&gt;\n    &lt;summary&gt;tidyverse&lt;/summary&gt;\n    &lt;p&gt;Wickham, H., et al. (2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse&lt;/p&gt;\n  &lt;/details&gt;\n\n  &lt;details class=\"reference-item\"&gt;\n    &lt;summary&gt;ggplot2&lt;/summary&gt;\n    &lt;p&gt;Wickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/&lt;/p&gt;\n  &lt;/details&gt;\n\n  &lt;details class=\"reference-item\"&gt;\n    &lt;summary&gt;Quarto&lt;/summary&gt;\n    &lt;p&gt;Allaire, J. J., et al. (2024). Quarto. https://quarto.org/&lt;/p&gt;\n  &lt;/details&gt;\n&lt;/div&gt;\n\n\n\n\n&lt;span&gt;GOAT Striker Analysis&lt;/span&gt;\n&lt;span&gt;Built with Quarto + R&lt;/span&gt;\n&lt;span&gt;© 2026&lt;/span&gt;"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
-    "section": "",
-    "text": "&lt;div class=\"logo-block\"&gt;\n  &lt;span class=\"logo-tag\"&gt;GOAT Striker&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\"nav-buttons\"&gt;\n  &lt;a class=\"nav-button\" href=\"index.html\"&gt;🏠 Home&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"analysis.html\"&gt;📊 Analysis&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"visualizations.html\"&gt;📈 Visualizations&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"references.html\"&gt;📚 References&lt;/a&gt;\n  &lt;a class=\"nav-button active\" href=\"about.html\"&gt;👤 About Me&lt;/a&gt;\n&lt;/div&gt;\n\n\n\n\n\n  &lt;div&gt;\n    &lt;h1 class=\"section-title\"&gt;About the Analyst&lt;/h1&gt;\n    &lt;p class=\"section-intro\"&gt;A premium portfolio page for a modern data science project built around international soccer analytics and elegant dashboard design.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"profile-card\"&gt;\n  &lt;div class=\"profile-avatar\"&gt;\n    &lt;div&gt;\n      &lt;strong&gt;Profile Image&lt;/strong&gt;\n      &lt;p&gt;Placeholder&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"profile-details\"&gt;\n    &lt;div&gt;\n      &lt;h2 class=\"profile-heading\"&gt;Dhruv Punia&lt;/h2&gt;\n      &lt;div class=\"profile-meta\"&gt;Central Jersey College Prep • Rising 9th grader&lt;/div&gt;\n    &lt;/div&gt;\n\n    &lt;p class=\"profile-copy\"&gt;This project blends sports analytics with a modern website aesthetic to answer a high-interest question using data. The site uses polished visuals, clear storytelling, and responsive page design to make the findings feel professional and futuristic.&lt;/p&gt;\n\n    &lt;div class=\"profile-grid\"&gt;\n      &lt;div class=\"profile-badge\"&gt;\n        &lt;h3 class=\"profile-badge-title\"&gt;Skills Learned&lt;/h3&gt;\n        &lt;p&gt;Data cleaning, chart design, tidyverse analysis, Quarto publishing, and web-style presentation.&lt;/p&gt;\n      &lt;/div&gt;\n      &lt;div class=\"profile-badge\"&gt;\n        &lt;h3 class=\"profile-badge-title\"&gt;Future Goals&lt;/h3&gt;\n        &lt;p&gt;Continue building data portfolio projects with stronger storytelling, more advanced analytics, and visually compelling UI experiences.&lt;/p&gt;\n      &lt;/div&gt;\n      &lt;div class=\"profile-badge\"&gt;\n        &lt;h3 class=\"profile-badge-title\"&gt;Project Strength&lt;/h3&gt;\n        &lt;p&gt;Combining objective metrics with a polished modern design gives this project a professional analytics dashboard feel.&lt;/p&gt;\n      &lt;/div&gt;\n      &lt;div class=\"profile-badge\"&gt;\n        &lt;h3 class=\"profile-badge-title\"&gt;Design Style&lt;/h3&gt;\n        &lt;p&gt;Galaxy-inspired gradients, glass panels, subtle animations, and crisp spacing make the site feel premium.&lt;/p&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n&lt;span&gt;GOAT Striker Analysis&lt;/span&gt;\n&lt;span&gt;Built with Quarto + R&lt;/span&gt;\n&lt;span&gt;© 2026&lt;/span&gt;"
-  },
-  {
-    "objectID": "visualizations.html",
-    "href": "visualizations.html",
-    "title": "Visualizations",
-    "section": "",
-    "text": "&lt;div class=\"logo-block\"&gt;\n  &lt;span class=\"logo-tag\"&gt;GOAT Striker&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\"nav-buttons\"&gt;\n  &lt;a class=\"nav-button\" href=\"index.html\"&gt;🏠 Home&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"analysis.html\"&gt;📊 Analysis&lt;/a&gt;\n  &lt;a class=\"nav-button active\" href=\"visualizations.html\"&gt;📈 Visualizations&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"references.html\"&gt;📚 References&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"about.html\"&gt;👤 About Me&lt;/a&gt;\n&lt;/div&gt;\n\n\n\n\n\n  &lt;div&gt;\n    &lt;h1 class=\"section-title\"&gt;Visualizations&lt;/h1&gt;\n    &lt;p class=\"section-intro\"&gt;A polished gallery of charts that illustrate the dataset and highlight the top striker candidates in a professional dashboard layout.&lt;/p&gt;\n  &lt;/div&gt;\n  &lt;div class=\"cta-row\"&gt;\n    &lt;a class=\"cta-button\" href=\"analysis.html\"&gt;Back to Analysis&lt;/a&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"section-description\"&gt;Beautiful visual storytelling is the foundation of this dashboard. Each chart is styled for clarity and matched to the galaxy theme for a cohesive portfolio experience.&lt;/div&gt;\n\n\n\n  &lt;div&gt;\n    &lt;h2 class=\"section-title\"&gt;Goals by Player&lt;/h2&gt;\n    &lt;p class=\"section-intro\"&gt;A modern bar chart showing the leading goalscorers in international play.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"chart-frame\"&gt;\n\n  ::: {.cell}\n  ::: {.cell-output-display}\n  ![](visualizations_files/figure-html/unnamed-chunk-1-1.png){width=672}\n  :::\n  :::\n\n&lt;/div&gt;\n\n&lt;p class=\"chart-caption\"&gt;Top scorers are ranked by total goals, giving a clear view of the elite international strikers in the dataset.&lt;/p&gt;\n\n\n\n  &lt;div&gt;\n    &lt;h2 class=\"section-title\"&gt;Career Longevity&lt;/h2&gt;\n    &lt;p class=\"section-intro\"&gt;Compare how long the leading scorers remained active in international competition.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"chart-frame\"&gt;\n\n  ::: {.cell}\n  ::: {.cell-output-display}\n  ![](visualizations_files/figure-html/unnamed-chunk-2-1.png){width=672}\n  :::\n  :::\n\n&lt;/div&gt;\n\n&lt;p class=\"chart-caption\"&gt;Longevity helps distinguish strikers who stayed elite across many years, not just those with short peak performance.&lt;/p&gt;\n\n\n\n  &lt;div&gt;\n    &lt;h2 class=\"section-title\"&gt;Open Play Share&lt;/h2&gt;\n    &lt;p class=\"section-intro\"&gt;Show how much of each top scorer’s goals came from open play versus set pieces and penalties.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"chart-frame\"&gt;\n\n  ::: {.cell}\n  ::: {.cell-output-display}\n  ![](visualizations_files/figure-html/unnamed-chunk-3-1.png){width=672}\n  :::\n  :::\n\n&lt;/div&gt;\n\n&lt;p class=\"chart-caption\"&gt;A strong open-play share indicates a scorer who contributes in active attacking situations rather than relying on penalties.&lt;/p&gt;\n\n\n\n\n&lt;span&gt;GOAT Striker Analysis&lt;/span&gt;\n&lt;span&gt;Built with Quarto + R&lt;/span&gt;\n&lt;span&gt;© 2026&lt;/span&gt;"
+    "text": "Welcome to the analysis website for the international striker project.\nThis site presents a concise data-driven argument for who is the greatest international striker of all time.\n\nView the full report in Analysis\nLearn more in About"
   },
   {
     "objectID": "analysis.html",
     "href": "analysis.html",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "&lt;div class=\"logo-block\"&gt;\n  &lt;span class=\"logo-tag\"&gt;GOAT Striker&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\"nav-buttons\"&gt;\n  &lt;a class=\"nav-button\" href=\"index.html\"&gt;🏠 Home&lt;/a&gt;\n  &lt;a class=\"nav-button active\" href=\"analysis.html\"&gt;📊 Analysis&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"visualizations.html\"&gt;📈 Visualizations&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"references.html\"&gt;📚 References&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"about.html\"&gt;👤 About Me&lt;/a&gt;\n&lt;/div&gt;\n\n\n\n\n\n  &lt;div&gt;\n    &lt;h1 class=\"section-title\"&gt;Analysis Dashboard&lt;/h1&gt;\n    &lt;p class=\"section-intro\"&gt;This report uses scoring volume, career longevity, and open-play quality to identify the strongest case for the greatest international striker.&lt;/p&gt;\n  &lt;/div&gt;\n  &lt;div class=\"cta-row\"&gt;\n    &lt;a class=\"cta-button\" href=\"visualizations.html\"&gt;Explore Visualizations&lt;/a&gt;\n    &lt;a class=\"button-secondary\" href=\"references.html\"&gt;View References&lt;/a&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"section-description\"&gt;Three premium analytics cards below present the core evidence in a clean data dashboard style.&lt;/div&gt;\n\n\n\n  &lt;div&gt;\n    &lt;h2 class=\"section-title\"&gt;Scoring Volume&lt;/h2&gt;\n    &lt;p class=\"section-intro\"&gt;Goals are the most direct measure of striker greatness. This view highlights the leading international scorers and shows who dominates purely by output.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](analysis_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n&lt;div class=\"chart-caption\"&gt;The top scorers are the first filter in the search for the greatest striker. High goal totals provide immediate evidence of elite attacking impact.&lt;/div&gt;\n\n\n\n  &lt;div&gt;\n    &lt;h2 class=\"section-title\"&gt;Longevity & Consistency&lt;/h2&gt;\n    &lt;p class=\"section-intro\"&gt;A durable career matters. This section explores how many years top international scorers remained active at the highest level.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](analysis_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n&lt;div class=\"chart-caption\"&gt;Longer careers signal sustained quality. Top scorers who remain productive over many years earn a stronger case for greatness.&lt;/div&gt;\n\n\n\n  &lt;div&gt;\n    &lt;h2 class=\"section-title\"&gt;Scoring Style&lt;/h2&gt;\n    &lt;p class=\"section-intro\"&gt;Open-play goals are a key indicator of a striker’s attacking versatility. This measure separates penalty-heavy totals from broader offensive impact.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](analysis_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\n&lt;div class=\"chart-caption\"&gt;A high share of open-play goals suggests a striker is succeeding in active attacking situations, not only from penalties.&lt;/div&gt;\n\n\n\n\n&lt;span&gt;GOAT Striker Analysis&lt;/span&gt;\n&lt;span&gt;Built with Quarto + R&lt;/span&gt;\n&lt;span&gt;© 2026&lt;/span&gt;"
+    "text": "Who is the greatest international striker of all time?\nThis report uses three simple measures of greatness: scoring volume, longevity, and scoring style. Together, they build a clear and balanced case.\n\n\nThe strongest starting point is total goals. A player who dominates this measure has the clearest initial case.\n\n\n\n\n\n\n\n\n\n\nThe leading player stands out clearly.\nThis is the strongest first indicator of greatness because it measures direct output.\n\n\n\n\nGreatness is not only about a short peak. A long scoring career suggests durability and sustained quality.\n\n\n\n\n\n\n\n\n\n\nThe strongest candidates also score over many seasons.\nLongevity strengthens the case because it shows sustained elite performance.\n\n\n\n\nOpen-play goals often reflect broader attacking quality than a penalty-heavy profile.\n\n\n\n\n\n\n\n\n\n\nThe leading scorers are mostly built on open-play production.\nThat makes the case for true striker quality stronger.\n\n\n\n\nThe best overall answer is the player who combines:\n\nthe highest scoring total,\nthe longest sustained career,\nand the strongest open-play profile.\n\nThat combination offers the clearest evidence for being the greatest international striker of all time.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nName: [Dhruv Punia]\nSchool: [Central Jersey College Prep]\nGrade: [Rising 9th grader]\nWh y I chose this project: I chose this project because it allowed me to explore a familiar sports question through data and visualization.\nWhat I learned: - How to clean and analyze a real dataset in R - How to create clear charts that support a claim - How to present findings in a concise Quarto report\n\n\n\n\n\nGoalscorers dataset. (n.d.). Unpublished dataset used for this project.\nR Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/\nWickham, H., et al. (2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse\nWickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/\nAllaire, J. J., et al. (2024). Quarto. https://quarto.org/\nWickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr\nWickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr\nWickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "GOAT Striker Analysis",
+    "objectID": "analysis.html#scoring-volume",
+    "href": "analysis.html#scoring-volume",
+    "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "&lt;div class=\"logo-block\"&gt;\n  &lt;span class=\"logo-tag\"&gt;GOAT Striker&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\"nav-buttons\"&gt;\n  &lt;a class=\"nav-button active\" href=\"index.html\"&gt;🏠 Home&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"analysis.html\"&gt;📊 Analysis&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"visualizations.html\"&gt;📈 Visualizations&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"references.html\"&gt;📚 References&lt;/a&gt;\n  &lt;a class=\"nav-button\" href=\"about.html\"&gt;👤 About Me&lt;/a&gt;\n&lt;/div&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  &lt;div class=\"hero-eyebrow\"&gt;Galactic Sports Analytics&lt;/div&gt;\n  &lt;h1 class=\"hero-title\"&gt;Who is the Greatest International Soccer Striker of All Time?&lt;/h1&gt;\n  &lt;p class=\"hero-subtitle\"&gt;An evidence-based statistical analysis using international goalscoring data. This site is designed as a modern analytics dashboard with premium insight cards, polished metrics, and responsive visual storytelling.&lt;/p&gt;\n\n  &lt;div class=\"hero-actions\"&gt;\n    &lt;a class=\"cta-button\" href=\"analysis.html\"&gt;Explore Analysis&lt;/a&gt;\n    &lt;a class=\"button-secondary\" href=\"visualizations.html\"&gt;View Visualizations&lt;/a&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n  &lt;div&gt;\n    &lt;h2 class=\"section-title\"&gt;Explore the Data Story&lt;/h2&gt;\n    &lt;p class=\"section-intro\"&gt;Start with the strongest evidence: goals scored, career longevity, and open-play dominance. Every section is presented like a premium dashboard card, built for clarity and visual impact.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"grid-row\"&gt;\n  &lt;div class=\"profile-badge\"&gt;\n    &lt;h3 class=\"profile-badge-title\"&gt;Report Focus&lt;/h3&gt;\n    &lt;p&gt;Isolate the greatest international striker using scoring volume, consistency, and playing style.&lt;/p&gt;\n  &lt;/div&gt;\n  &lt;div class=\"profile-badge\"&gt;\n    &lt;h3 class=\"profile-badge-title\"&gt;Design Goal&lt;/h3&gt;\n    &lt;p&gt;Build a futuristic analytics portfolio with galaxy-inspired UI, glassmorphism, and polished chart presentation.&lt;/p&gt;\n  &lt;/div&gt;\n  &lt;div class=\"profile-badge\"&gt;\n    &lt;h3 class=\"profile-badge-title\"&gt;User Experience&lt;/h3&gt;\n    &lt;p&gt;Navigation and layout are built for fast access, smooth scrolling, and an immersive data dashboard feel.&lt;/p&gt;\n  &lt;/div&gt;\n  &lt;div class=\"profile-badge\"&gt;\n    &lt;h3 class=\"profile-badge-title\"&gt;Technical Stack&lt;/h3&gt;\n    &lt;p&gt;Quarto + R for analytics, with custom CSS and modern web layout for a premium portfolio presentation.&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n&lt;span&gt;GOAT Striker Analysis&lt;/span&gt;\n&lt;span&gt;Built with Quarto + R&lt;/span&gt;\n&lt;span&gt;© 2026&lt;/span&gt;"
+    "text": "The strongest starting point is total goals. A player who dominates this measure has the clearest initial case.\n\n\n\n\n\n\n\n\n\n\nThe leading player stands out clearly.\nThis is the strongest first indicator of greatness because it measures direct output.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#longevity-and-consistency",
+    "href": "analysis.html#longevity-and-consistency",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "",
+    "text": "Greatness is not only about a short peak. A long scoring career suggests durability and sustained quality.\n\n\n\n\n\n\n\n\n\n\nThe strongest candidates also score over many seasons.\nLongevity strengthens the case because it shows sustained elite performance.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#scoring-style",
+    "href": "analysis.html#scoring-style",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "",
+    "text": "Open-play goals often reflect broader attacking quality than a penalty-heavy profile.\n\n\n\n\n\n\n\n\n\n\nThe leading scorers are mostly built on open-play production.\nThat makes the case for true striker quality stronger.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#final-takeaway",
+    "href": "analysis.html#final-takeaway",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "",
+    "text": "The best overall answer is the player who combines:\n\nthe highest scoring total,\nthe longest sustained career,\nand the strongest open-play profile.\n\nThat combination offers the clearest evidence for being the greatest international striker of all time.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#about-the-author",
+    "href": "analysis.html#about-the-author",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "",
+    "text": "Note\n\n\n\nName: [Dhruv Punia]\nSchool: [Central Jersey College Prep]\nGrade: [Rising 9th grader]\nWh y I chose this project: I chose this project because it allowed me to explore a familiar sports question through data and visualization.\nWhat I learned: - How to clean and analyze a real dataset in R - How to create clear charts that support a claim - How to present findings in a concise Quarto report",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#references",
+    "href": "analysis.html#references",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "",
+    "text": "Goalscorers dataset. (n.d.). Unpublished dataset used for this project.\nR Core Team. (2024). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.R-project.org/\nWickham, H., et al. (2019). tidyverse: Easily install and load the tidyverse. https://CRAN.R-project.org/package=tidyverse\nWickham, H. (2016). ggplot2: Elegant graphics for data analysis. Springer-Verlag New York. https://ggplot2.tidyverse.org/\nAllaire, J. J., et al. (2024). Quarto. https://quarto.org/\nWickham, H., et al. (2023). dplyr: A grammar of data manipulation. https://CRAN.R-project.org/package=dplyr\nWickham, H., et al. (2023). readr: Read rectangular text data. https://CRAN.R-project.org/package=readr\nWickham, H. (2023). forcats: Tools for working with categorical variables. https://CRAN.R-project.org/package=forcats",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This project explores a sports question through data visualization and simple statistical evidence.\nIt uses a cleaned goalscorers dataset and a short Quarto report to present the argument clearly and professionally."
   }
 ]
