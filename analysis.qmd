@@ -1,6 +1,6 @@
 ---
 title: "Who Is the Greatest International Striker of All Time?"
-subtitle: "Evidence, context, and a balanced GOAT model"
+subtitle: "A five-minute presentation of the case"
 author: "Dhruv Punia"
 date: today
 format:
@@ -107,29 +107,15 @@ ggplot(opening_plot, aes(x = fct_reorder(scorer, total_goals), y = total_goals))
   )
 ```
 
-This opening chart gives the first impression of the debate. It shows the biggest international goal totals at a glance, but it also sets up the key question: does the player with the most goals automatically deserve the title of greatest striker?
+Who already stands out in the international scoring race? This chart gives the audience the first impression: the biggest names are visible immediately, and the takeaway is simple—raw totals create the shortlist, but they do not yet prove greatness. That is the bridge to the next question: if goals alone are not enough, what else should we measure?
 
 # 1. Introduction / Hook
 
-**Question answered:** Who really deserves the label “greatest international striker,” and why this is more than a goals leaderboard?
-
-**What data is shown:** the dataset of every international goal, the leading scorers, and the metrics we will build from those records.
-
-**Best visualization:** the opening chart above, which gives the first impression of the debate.
-
-**Insight:** The strongest case needs volume and context; raw totals are the first clue, not the final verdict.
-
-The dataset records every international goal scored by an attacking player. In this investigation, we treat each goal as evidence and use it to test whether the all-time top names hold up once we measure quality, efficiency, and career profile.
+Who really deserves the label “greatest international striker”? The dataset gives us a simple starting point: every international goal is evidence, and the strongest case needs more than a list of names. The takeaway is that this project is not just ranking scorers—it is testing whether the strongest all-around striker also leaves the clearest statistical footprint. That leads directly to the next chart, where the raw leaderboard becomes the first layer of the story.
 
 # 2. Why total goals is not enough
 
-**Question answered:** Does the top scorer also have the strongest claim to be the GOAT?
-
-**What data is shown:** total goals for the leading scorers, plus note of penalty and open-play distribution.
-
-**Best visualization:** a ranked bar chart of total goals for the top candidates.
-
-**Insight:** Total goals expose the initial favorites, but they do not reveal how those goals were produced.
+Does the top scorer also have the strongest GOAT claim? The leaderboard makes the favorites obvious, but it also reminds us that totals can hide very different scoring styles. The key takeaway is that the raw goals leader is not automatically the best all-around striker, and the next chart asks whether the way those goals were produced matters.
 
 ```{r}
 #| echo: false
@@ -159,7 +145,7 @@ ggplot(ranked_goals, aes(x = fct_reorder(scorer, total_goals), y = total_goals))
   )
 ```
 
-A professional analyst asks: how many of those goals were penalties? How many came from long careers? How many were scored in friendly fixtures? The dataset does not have every match context, so our next sections add metrics that make the case stronger.
+The next question is practical: how many of those goals came from penalties, and how many came from open play? The dataset does not capture every match context, so the next sections add the metrics that make the case stronger.
 
 ```{r}
 #| echo: false
@@ -175,13 +161,7 @@ knitr::kable(
 
 # 3. Measuring scoring ability
 
-**Question answered:** Which strikers earned their goals from open play rather than set-piece or penalty conversion?
-
-**What data is shown:** goals by goal type for top candidates and the share of open-play scoring.
-
-**Best visualization:** a stacked bar chart of goal-type distribution for the top scorers.
-
-**Insight:** A high open-play share marks strikers who produce the kinds of goals that depend on movement, finishing, and chance creation.
+Which strikers earned their goals in the most demanding way? Open-play scoring is a strong signal because it reflects movement, timing, and finishing under real match pressure. The takeaway is that a striker with a high open-play share looks more like a complete attacker than someone who relies heavily on penalties, and that leads naturally to the next question: how efficiently did they produce goals over time?
 
 ```{r}
 #| echo: false
@@ -211,17 +191,11 @@ ggplot(top_goal_type, aes(x = fct_reorder(scorer, total_goals), y = share, fill 
   )
 ```
 
-In a professional report, open-play scoring is treated as a quality filter. A striker with a high penalty share may still be great, but their profile is different from one whose goals come from active build-up and attacking movement.
+In a live presentation, this is the point where the audience sees the difference between volume and quality. A striker with a high penalty share may still be great, but their profile is different from one whose goals come from active build-up and attacking movement.
 
 # 4. Measuring efficiency
 
-**Question answered:** Which striker produced the most goals per season of international scoring impact?
-
-**What data is shown:** active years, total goals, and goals per active year for the leading candidates.
-
-**Best visualization:** a scatter or bar comparison of goals-per-year versus total goals.
-
-**Insight:** Efficiency exposes players who scored heavily in shorter windows and those who sustained output over decades.
+How efficiently did the top scorers produce goals across their active years? This chart rewards players who delivered at a high rate without needing decades of appearances. The takeaway is that efficiency helps separate sustained elite output from simply playing longer, and it sets up the next comparison across eras.
 
 ```{r}
 #| echo: false
@@ -251,17 +225,11 @@ ggplot(efficiency, aes(x = fct_reorder(scorer, goals_per_year), y = goals_per_ye
   )
 ```
 
-A modern analysis gives weight to efficiency. A player who averages 5+ goals per international year is producing elite output, even if they played fewer seasons than the raw goals leader.
+A modern presentation makes this point quickly: a player who averages a very high goal rate is producing elite output, even if they played fewer seasons than the raw goals leader.
 
 # 5. Comparing eras
 
-**Question answered:** Do the scoring patterns change across decades, and how does that affect the GOAT conversation?
-
-**What data is shown:** total international goals by decade and the evolution of major scoring periods.
-
-**Best visualization:** a line chart or area chart of goals by decade.
-
-**Insight:** Era context matters. A striker who dominated in one generation may not be directly comparable to someone from a later or earlier decade without adjustment.
+Do scoring patterns change by decade? The answer is yes, and that matters because the GOAT conversation is really a comparison across different football eras. The takeaway is that context matters, so the next chart compares the scoring profiles of the main candidates rather than treating every career as if it happened in the same environment.
 
 ```{r}
 #| echo: false
@@ -287,17 +255,11 @@ ggplot(decade_summary, aes(x = decade, y = goals)) +
   )
 ```
 
-This chart reminds the audience that international scoring is not static. When we compare candidates, we are also comparing different calendars, match rhythms, and tournament schedules.
+This is the moment to remind the audience that international scoring is not static. When we compare candidates, we are also comparing different calendars, match rhythms, and tournament schedules.
 
 # 6. Comparing scoring profiles
 
-**Question answered:** Do the strongest scorers look similar, or do they have distinct styles?
-
-**What data is shown:** total goals, goals per active year, open-play share, and career span for the leading candidates.
-
-**Best visualization:** a scatter plot and a horizontal bar chart.
-
-**Insight:** Some players are volume-driven, others are efficiency-driven, and some combine both. A deeper comparison helps explain why a raw goals leader may not always be the best all-around striker profile.
+Do the strongest scorers look alike, or do they have distinct styles? Some players are volume-driven, others are more efficient, and some combine both. The takeaway is that the best striker may not be the one with the biggest total alone, and the next step is to combine these signals into one model.
 
 ```{r}
 #| echo: false
@@ -356,13 +318,11 @@ knitr::kable(
 )
 ```
 
-This section adds another layer of evidence: some players built huge totals over long careers, while others were more efficient and more explosive in shorter windows. That distinction matters when we judge the strongest all-around striker.
+This is the point where the audience sees the trade-off clearly: some players built huge totals over long careers, while others were more efficient and more explosive in shorter windows. That distinction matters when we judge the strongest all-around striker.
 
 # 7. Build your own GOAT model
 
-**Question answered:** How can you change the weights for volume, scoring quality, and efficiency to see who rises to the top?
-
-**What you can do:** move the sliders below to set your preferred importance for total goals, open-play share, and goals per active year. The model will recalculate the ranking instantly.
+How can the same dataset be turned into a simple GOAT model? By weighting volume, scoring quality, and efficiency differently, we can test which profile looks strongest under a balanced framework. The takeaway is that this makes the debate more transparent, and the next chart turns that logic into a static ranking.
 
 ```{r}
 #| echo: false
@@ -408,17 +368,11 @@ knitr::kable(
 )
 ```
 
-This version turns the model into a simple decision tool: the same dataset can now be evaluated from different perspectives depending on whether you value raw totals, open-play quality, or efficiency most.
+This is the interactive moment of the presentation: the same data can be evaluated from different perspectives depending on whether the audience values raw totals, open-play quality, or efficiency most.
 
 # 8. Static GOAT ranking model
 
-**Question answered:** How can we combine volume, scoring quality, and efficiency into a defensible composite score?
-
-**What data is shown:** the model score for the top candidates and the components that feed it.
-
-**Best visualization:** a horizontal ranking chart of model score.
-
-**Insight:** A balanced model penalizes one-dimensional scorers and rewards those who bring sustained output and open-play quality.
+What happens when we combine those factors into one composite score? The model rewards players who bring both output and balance rather than relying on a single strength. The takeaway is that this final ranking is the clearest summary of the evidence so far, and it sets up the short answer.
 
 ```{r}
 #| echo: false
@@ -458,17 +412,11 @@ knitr::kable(
 )
 ```
 
-This section is the culmination of the investigation: a model that does not simply reward the raw leader, but also gives credit to players who scored in open play and stayed productive across their international careers.
+This is the culmination of the analysis: a model that does not simply reward the raw leader, but also gives credit to players who scored in open play and stayed productive across their international careers.
 
 # 9. Final conclusion — the short answer
 
-**Question answered:** Who do we pick as the best international striker based on this dataset and why?
-
-**What you will see:** a short, chatty verdict and the compact evidence behind it.
-
-**Best visualization:** the composite ranking chart above and a tiny summary table.
-
-**Verdict (short):** below is the pick we recommend based on the composite score.
+Who do we pick as the best international striker from this dataset, and why? Our short answer is the player with the strongest balance of volume, quality, and efficiency, not simply the player with the most goals. The takeaway is that the data supports a thoughtful verdict, and the final section highlights what the model still cannot capture.
 
 ```{r}
 #| echo: false
@@ -487,9 +435,7 @@ If you want the raw leaderboard, the composite chart above shows how other top c
 
 ## Limitations and next steps
 
-- The dataset does not include minutes played or caps, so efficiency is proxied by goals per active year.
-- We do not have full match importance or opponent strength for every goal.
-- Adding minutes, competition type, and match result would let us refine the model (and maybe change the pick).
+How should we interpret the result with care? The dataset is strong but not complete, because it lacks minutes played, caps, and match context. The takeaway is that the ranking is useful but still a simplified view of greatness, and the next step is to add richer data if we want a more complete answer.
 
 ## About the Author
 

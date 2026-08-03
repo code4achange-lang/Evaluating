@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "GOAT Striker Analysis",
     "section": "",
-    "text": "Who do we think is the best international striker? This site walks through the data quickly and honestly, then gives a clear pick at the end.\nWhat you’ll see:\n\nA plain explanation of the problem (goals vs. greatness)\nA few smart metrics that actually matter\nA short, evidence-backed pick for the top player\n\nFollow the sections in the analysis for the full story — or skip to the conclusion to see our short answer."
+    "text": "Who is the Greatest International Soccer Striker of All Time?\n\nThe debate is simple to ask and difficult to answer: a striker can score brilliantly, but greatness also depends on consistency, tournament impact, and career-defining moments.\n\n\nIn a 20–30 second pitch, this project turns that debate into a data-backed argument by combining international goals with performance measures that capture the full story behind elite strikers.\n\nOpen the analysis\n\n\n\n\n         Goals Impact Consistency\n\n\n\n&lt;span&gt;International scoring records&lt;/span&gt;\n&lt;strong&gt;Goal totals&lt;/strong&gt;\n\n\n&lt;span&gt;Major tournament influence&lt;/span&gt;\n&lt;strong&gt;Impact&lt;/strong&gt;\n\n\n&lt;span&gt;Career longevity&lt;/span&gt;\n&lt;strong&gt;Consistency&lt;/strong&gt;\n\n\n\n\n\n\n\n\nWhy this question matters\n\nIt brings together football history, statistics, and the meaning of greatness.\nA striker is judged not only by goals, but by influence on big matches and long-term consistency.\nThe answer helps frame the sport’s greatest careers in a way that is clear and evidence-based.\n\n\n\nWhat the dataset reveals\n\nThe project uses a cleaned international goalscorer dataset with player-level scoring information.\nData science methods help compare players across totals, rate-based measures, and tournament relevance.\nThe analysis turns raw numbers into a concise, presentation-ready conclusion.\n\n\n\n\nPresentation-ready summary: this site is built to introduce the question quickly, explain the method simply, and guide the audience to a confident verdict."
   },
   {
     "objectID": "index.html#quick-pitch",
@@ -18,7 +18,7 @@
     "href": "analysis.html",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "This opening chart gives the first impression of the debate. It shows the biggest international goal totals at a glance, but it also sets up the key question: does the player with the most goals automatically deserve the title of greatest striker?",
+    "text": "Who already stands out in the international scoring race? This chart gives the audience the first impression: the biggest names are visible immediately, and the takeaway is simple—raw totals create the shortlist, but they do not yet prove greatness. That is the bridge to the next question: if goals alone are not enough, what else should we measure?",
     "crumbs": [
       "Home",
       "Report",
@@ -30,7 +30,7 @@
     "href": "analysis.html#opening-visual",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "This opening chart gives the first impression of the debate. It shows the biggest international goal totals at a glance, but it also sets up the key question: does the player with the most goals automatically deserve the title of greatest striker?",
+    "text": "Who already stands out in the international scoring race? This chart gives the audience the first impression: the biggest names are visible immediately, and the takeaway is simple—raw totals create the shortlist, but they do not yet prove greatness. That is the bridge to the next question: if goals alone are not enough, what else should we measure?",
     "crumbs": [
       "Home",
       "Report",
@@ -42,7 +42,7 @@
     "href": "analysis.html#limitations-and-next-steps",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "Limitations and next steps",
-    "text": "Limitations and next steps\n\nThe dataset does not include minutes played or caps, so efficiency is proxied by goals per active year.\nWe do not have full match importance or opponent strength for every goal.\nAdding minutes, competition type, and match result would let us refine the model (and maybe change the pick).",
+    "text": "Limitations and next steps\nHow should we interpret the result with care? The dataset is strong but not complete, because it lacks minutes played, caps, and match context. The takeaway is that the ranking is useful but still a simplified view of greatness, and the next step is to add richer data if we want a more complete answer.",
     "crumbs": [
       "Home",
       "Report",
