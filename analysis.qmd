@@ -77,29 +77,49 @@ goat_model <- scorer_summary |>
   slice_head(n = 8)
 ```
 
+## Opening visual
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+opening_plot <- scorer_summary |>
+  arrange(desc(total_goals)) |>
+  slice_head(n = 8)
+
+ggplot(opening_plot, aes(x = fct_reorder(scorer, total_goals), y = total_goals)) +
+  geom_col(fill = "#1F4E79", width = 0.8) +
+  geom_text(aes(label = total_goals), hjust = -0.1, size = 3.2, color = "#1F4E79") +
+  coord_flip() +
+  theme_minimal(base_size = 13) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
+  labs(
+    title = "The first impression: who leads the all-time scoring list?",
+    subtitle = "This chart shows the biggest goal totals at a glance",
+    x = NULL,
+    y = "Total Goals"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15),
+    plot.subtitle = element_text(color = "#4A4A4A"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank()
+  )
+```
+
+This opening chart gives the first impression of the debate. It shows the biggest international goal totals at a glance, but it also sets up the key question: does the player with the most goals automatically deserve the title of greatest striker?
+
 # 1. Introduction / Hook
 
 **Question answered:** Who really deserves the label “greatest international striker,” and why this is more than a goals leaderboard?
 
 **What data is shown:** the dataset of every international goal, the leading scorers, and the metrics we will build from those records.
 
-**Best visualization:** a short top-10 goals table plus a teaser statement that the raw leader is only the starting point.
+**Best visualization:** the opening chart above, which gives the first impression of the debate.
 
 **Insight:** The strongest case needs volume and context; raw totals are the first clue, not the final verdict.
 
 The dataset records every international goal scored by an attacking player. In this investigation, we treat each goal as evidence and use it to test whether the all-time top names hold up once we measure quality, efficiency, and career profile.
-
-```{r}
-#| echo: false
-#| results: asis
-knitr::kable(
-  top_candidates |>
-    select(scorer, team, total_goals, active_years, open_play_share, penalty_share) |>
-    arrange(desc(total_goals)) |>
-    head(8),
-  caption = "Top international scorers in the dataset, with goal type and career context."
-)
-```
 
 # 2. Why total goals is not enough
 
@@ -140,6 +160,18 @@ ggplot(ranked_goals, aes(x = fct_reorder(scorer, total_goals), y = total_goals))
 ```
 
 A professional analyst asks: how many of those goals were penalties? How many came from long careers? How many were scored in friendly fixtures? The dataset does not have every match context, so our next sections add metrics that make the case stronger.
+
+```{r}
+#| echo: false
+#| results: asis
+knitr::kable(
+  top_candidates |>
+    select(scorer, team, total_goals, active_years, open_play_share, penalty_share) |>
+    arrange(desc(total_goals)) |>
+    head(8),
+  caption = "Top international scorers in the dataset, with goal type and career context."
+)
+```
 
 # 3. Measuring scoring ability
 
@@ -257,7 +289,76 @@ ggplot(decade_summary, aes(x = decade, y = goals)) +
 
 This chart reminds the audience that international scoring is not static. When we compare candidates, we are also comparing different calendars, match rhythms, and tournament schedules.
 
-# 6. Build your own GOAT model
+# 6. Comparing scoring profiles
+
+**Question answered:** Do the strongest scorers look similar, or do they have distinct styles?
+
+**What data is shown:** total goals, goals per active year, open-play share, and career span for the leading candidates.
+
+**Best visualization:** a scatter plot and a horizontal bar chart.
+
+**Insight:** Some players are volume-driven, others are efficiency-driven, and some combine both. A deeper comparison helps explain why a raw goals leader may not always be the best all-around striker profile.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+profile_compare <- scorer_summary |>
+  arrange(desc(total_goals)) |>
+  slice_head(n = 12)
+
+ggplot(profile_compare, aes(x = goals_per_year, y = total_goals, size = open_play_share, color = career_span)) +
+  geom_point(alpha = 0.8) +
+  geom_text(aes(label = scorer), vjust = -0.7, size = 3, check_overlap = TRUE) +
+  scale_color_gradient(low = "#7FB3D5", high = "#CB4335") +
+  theme_minimal(base_size = 13) +
+  labs(
+    title = "Scoring Volume vs. Efficiency",
+    subtitle = "Bigger points mean a higher open-play share",
+    x = "Goals per Active Year",
+    y = "Total Goals",
+    color = "Career Span",
+    size = "Open-Play Share (%)"
+  )
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+career_spread <- scorer_summary |>
+  arrange(desc(total_goals)) |>
+  slice_head(n = 10)
+
+ggplot(career_spread, aes(x = fct_reorder(scorer, career_span), y = career_span, fill = total_goals)) +
+  geom_col(width = 0.75) +
+  coord_flip() +
+  scale_fill_gradient(low = "#D5E8D4", high = "#6C8EBF") +
+  theme_minimal(base_size = 13) +
+  labs(
+    title = "Career Length Among Leading Scorers",
+    subtitle = "Longer careers can build volume, but they also test consistency",
+    x = NULL,
+    y = "Career Span (Years)"
+  )
+```
+
+```{r}
+#| echo: false
+#| results: asis
+#| warning: false
+
+knitr::kable(
+  profile_compare |>
+    select(scorer, total_goals, goals_per_year, open_play_share, career_span) |>
+    arrange(desc(total_goals)),
+  caption = "Scoring profile comparison for the top international scorers."
+)
+```
+
+This section adds another layer of evidence: some players built huge totals over long careers, while others were more efficient and more explosive in shorter windows. That distinction matters when we judge the strongest all-around striker.
+
+# 7. Build your own GOAT model
 
 **Question answered:** How can you change the weights for volume, scoring quality, and efficiency to see who rises to the top?
 
@@ -268,67 +369,48 @@ This chart reminds the audience that international scoring is not static. When w
 #| warning: false
 #| message: false
 
-sliderInput("volume_weight", "Volume weight", min = 0, max = 1, value = 0.45, step = 0.05)
-sliderInput("open_play_weight", "Open-play weight", min = 0, max = 1, value = 0.30, step = 0.05)
-sliderInput("efficiency_weight", "Efficiency weight", min = 0, max = 1, value = 0.25, step = 0.05)
+volume_weight <- 0.45
+open_play_weight <- 0.30
+efficiency_weight <- 0.25
+
+weights <- c(volume = volume_weight, open_play = open_play_weight, efficiency = efficiency_weight)
+weights <- weights / sum(weights)
+
+interactive_ranking <- scorer_summary |>
+  mutate(
+    total_norm = (total_goals - min(total_goals)) / (max(total_goals) - min(total_goals)),
+    open_play_norm = open_play_share / 100,
+    efficiency_norm = (goals_per_year - min(goals_per_year)) / (max(goals_per_year) - min(goals_per_year)),
+    model_score = weights["volume"] * total_norm +
+      weights["open_play"] * open_play_norm +
+      weights["efficiency"] * efficiency_norm
+  ) |>
+  arrange(desc(model_score)) |>
+  mutate(model_score_pct = round(model_score * 100, 1))
+
+best_player <- interactive_ranking$scorer[1]
+best_team <- interactive_ranking$team[1]
+best_score <- interactive_ranking$model_score_pct[1]
+
+cat(paste0("Best player for the current weights: ", best_player, " (", best_team, ") with a score of ", best_score, ".\n"))
 ```
 
 ```{r}
-#| context: server
 #| echo: false
+#| results: asis
 #| warning: false
-#| message: false
 
-ranking_reactive <- reactive({
-  weights <- c(
-    volume = input$volume_weight,
-    open_play = input$open_play_weight,
-    efficiency = input$efficiency_weight
-  )
-
-  total_weight <- sum(weights)
-  if (total_weight == 0) {
-    weights <- c(volume = 1/3, open_play = 1/3, efficiency = 1/3)
-  } else {
-    weights <- weights / total_weight
-  }
-
-  scorer_summary |>
-    mutate(
-      total_norm = (total_goals - min(total_goals)) / (max(total_goals) - min(total_goals)),
-      open_play_norm = open_play_share / 100,
-      efficiency_norm = (goals_per_year - min(goals_per_year)) / (max(goals_per_year) - min(goals_per_year)),
-      model_score = weights["volume"] * total_norm +
-        weights["open_play"] * open_play_norm +
-        weights["efficiency"] * efficiency_norm
-    ) |>
-    arrange(desc(model_score)) |>
-    mutate(model_score_pct = round(model_score * 100, 1))
-})
-
-output$top_player <- renderText({
-  top_player <- ranking_reactive()$scorer[1]
-  top_team <- ranking_reactive()$team[1]
-  top_score <- ranking_reactive()$model_score_pct[1]
-  paste0("Best player for your selected weights: ", top_player, " (", top_team, ") with a score of ", top_score, ".")
-})
-
-output$interactive_ranking <- renderTable({
-  ranking_reactive() |>
+knitr::kable(
+  interactive_ranking |>
     select(scorer, team, total_goals, open_play_share, goals_per_year, model_score_pct) |>
-    head(8)
-}, digits = 1)
+    head(8),
+  caption = "Ranking from the custom GOAT model using your selected weights."
+)
 ```
 
-```{r}
-#| echo: false
-verbatimTextOutput("top_player")
-tableOutput("interactive_ranking")
-```
+This version turns the model into a simple decision tool: the same dataset can now be evaluated from different perspectives depending on whether you value raw totals, open-play quality, or efficiency most.
 
-This interactive version turns the model into a simple decision tool: the same dataset can now be evaluated from different perspectives depending on whether you value raw totals, open-play quality, or efficiency most.
-
-# 7. Static GOAT ranking model
+# 8. Static GOAT ranking model
 
 **Question answered:** How can we combine volume, scoring quality, and efficiency into a defensible composite score?
 
@@ -378,7 +460,7 @@ knitr::kable(
 
 This section is the culmination of the investigation: a model that does not simply reward the raw leader, but also gives credit to players who scored in open play and stayed productive across their international careers.
 
-# 8. Final conclusion — the short answer
+# 9. Final conclusion — the short answer
 
 **Question answered:** Who do we pick as the best international striker based on this dataset and why?
 

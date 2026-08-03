@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dhruv Punia">
-<meta name="dcterms.date" content="2026-07-30">
+<meta name="dcterms.date" content="2026-07-31">
 
 <title>Who Is the Greatest International Striker of All Time? – GOAT Striker Analysis</title>
 <style>
@@ -155,13 +155,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-hook" id="toc-introduction-hook" class="nav-link active" data-scroll-target="#introduction-hook">1. Introduction / Hook</a></li>
+  <li><a href="#opening-visual" id="toc-opening-visual" class="nav-link active" data-scroll-target="#opening-visual">Opening visual</a></li>
+  <li><a href="#introduction-hook" id="toc-introduction-hook" class="nav-link" data-scroll-target="#introduction-hook">1. Introduction / Hook</a></li>
   <li><a href="#why-total-goals-is-not-enough" id="toc-why-total-goals-is-not-enough" class="nav-link" data-scroll-target="#why-total-goals-is-not-enough">2. Why total goals is not enough</a></li>
   <li><a href="#measuring-scoring-ability" id="toc-measuring-scoring-ability" class="nav-link" data-scroll-target="#measuring-scoring-ability">3. Measuring scoring ability</a></li>
   <li><a href="#measuring-efficiency" id="toc-measuring-efficiency" class="nav-link" data-scroll-target="#measuring-efficiency">4. Measuring efficiency</a></li>
   <li><a href="#comparing-eras" id="toc-comparing-eras" class="nav-link" data-scroll-target="#comparing-eras">5. Comparing eras</a></li>
-  <li><a href="#creating-a-goat-ranking-model" id="toc-creating-a-goat-ranking-model" class="nav-link" data-scroll-target="#creating-a-goat-ranking-model">6. Creating a GOAT ranking model</a></li>
-  <li><a href="#final-conclusion-the-short-answer" id="toc-final-conclusion-the-short-answer" class="nav-link" data-scroll-target="#final-conclusion-the-short-answer">7. Final conclusion — the short answer</a>
+  <li><a href="#comparing-scoring-profiles" id="toc-comparing-scoring-profiles" class="nav-link" data-scroll-target="#comparing-scoring-profiles">6. Comparing scoring profiles</a></li>
+  <li><a href="#build-your-own-goat-model" id="toc-build-your-own-goat-model" class="nav-link" data-scroll-target="#build-your-own-goat-model">7. Build your own GOAT model</a></li>
+  <li><a href="#static-goat-ranking-model" id="toc-static-goat-ranking-model" class="nav-link" data-scroll-target="#static-goat-ranking-model">8. Static GOAT ranking model</a></li>
+  <li><a href="#final-conclusion-the-short-answer" id="toc-final-conclusion-the-short-answer" class="nav-link" data-scroll-target="#final-conclusion-the-short-answer">9. Final conclusion — the short answer</a>
   <ul class="collapse">
   <li><a href="#limitations-and-next-steps" id="toc-limitations-and-next-steps" class="nav-link" data-scroll-target="#limitations-and-next-steps">Limitations and next steps</a></li>
   <li><a href="#about-the-author" id="toc-about-the-author" class="nav-link" data-scroll-target="#about-the-author">About the Author</a></li>
@@ -193,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 30, 2026</p>
+      <p class="date">July 31, 2026</p>
     </div>
   </div>
   
@@ -205,13 +208,43 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="opening-visual" class="level2">
+<h2 class="anchored" data-anchor-id="opening-visual">Opening visual</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This opening chart gives the first impression of the debate. It shows the biggest international goal totals at a glance, but it also sets up the key question: does the player with the most goals automatically deserve the title of greatest striker?</p>
+</section>
 <section id="introduction-hook" class="level1">
 <h1>1. Introduction / Hook</h1>
 <p><strong>Question answered:</strong> Who really deserves the label “greatest international striker,” and why this is more than a goals leaderboard?</p>
 <p><strong>What data is shown:</strong> the dataset of every international goal, the leading scorers, and the metrics we will build from those records.</p>
-<p><strong>Best visualization:</strong> a short top-10 goals table plus a teaser statement that the raw leader is only the starting point.</p>
+<p><strong>Best visualization:</strong> the opening chart above, which gives the first impression of the debate.</p>
 <p><strong>Insight:</strong> The strongest case needs volume and context; raw totals are the first clue, not the final verdict.</p>
 <p>The dataset records every international goal scored by an attacking player. In this investigation, we treat each goal as evidence and use it to test whether the all-time top names hold up once we measure quality, efficiency, and career profile.</p>
+</section>
+<section id="why-total-goals-is-not-enough" class="level1">
+<h1>2. Why total goals is not enough</h1>
+<p><strong>Question answered:</strong> Does the top scorer also have the strongest claim to be the GOAT?</p>
+<p><strong>What data is shown:</strong> total goals for the leading scorers, plus note of penalty and open-play distribution.</p>
+<p><strong>Best visualization:</strong> a ranked bar chart of total goals for the top candidates.</p>
+<p><strong>Insight:</strong> Total goals expose the initial favorites, but they do not reveal how those goals were produced.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A professional analyst asks: how many of those goals were penalties? How many came from long careers? How many were scored in friendly fixtures? The dataset does not have every match context, so our next sections add metrics that make the case stronger.</p>
 <table class="caption-top table">
 <caption>Top international scorers in the dataset, with goal type and career context.</caption>
 <colgroup>
@@ -300,23 +333,6 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="why-total-goals-is-not-enough" class="level1">
-<h1>2. Why total goals is not enough</h1>
-<p><strong>Question answered:</strong> Does the top scorer also have the strongest claim to be the GOAT?</p>
-<p><strong>What data is shown:</strong> total goals for the leading scorers, plus note of penalty and open-play distribution.</p>
-<p><strong>Best visualization:</strong> a ranked bar chart of total goals for the top candidates.</p>
-<p><strong>Insight:</strong> Total goals expose the initial favorites, but they do not reveal how those goals were produced.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A professional analyst asks: how many of those goals were penalties? How many came from long careers? How many were scored in friendly fixtures? The dataset does not have every match context, so our next sections add metrics that make the case stronger.</p>
-</section>
 <section id="measuring-scoring-ability" class="level1">
 <h1>3. Measuring scoring ability</h1>
 <p><strong>Question answered:</strong> Which strikers earned their goals from open play rather than set-piece or penalty conversion?</p>
@@ -327,7 +343,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -344,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -361,15 +377,244 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>This chart reminds the audience that international scoring is not static. When we compare candidates, we are also comparing different calendars, match rhythms, and tournament schedules.</p>
 </section>
-<section id="creating-a-goat-ranking-model" class="level1">
-<h1>6. Creating a GOAT ranking model</h1>
+<section id="comparing-scoring-profiles" class="level1">
+<h1>6. Comparing scoring profiles</h1>
+<p><strong>Question answered:</strong> Do the strongest scorers look similar, or do they have distinct styles?</p>
+<p><strong>What data is shown:</strong> total goals, goals per active year, open-play share, and career span for the leading candidates.</p>
+<p><strong>Best visualization:</strong> a scatter plot and a horizontal bar chart.</p>
+<p><strong>Insight:</strong> Some players are volume-driven, others are efficiency-driven, and some combine both. A deeper comparison helps explain why a raw goals leader may not always be the best all-around striker profile.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<caption>Scoring profile comparison for the top international scorers.</caption>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">scorer</th>
+<th style="text-align: right;">total_goals</th>
+<th style="text-align: right;">goals_per_year</th>
+<th style="text-align: right;">open_play_share</th>
+<th style="text-align: right;">career_span</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cristiano Ronaldo</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">5.64</td>
+<td style="text-align: right;">82.3</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Harry Kane</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">7.50</td>
+<td style="text-align: right;">68.0</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lionel Messi</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">3.55</td>
+<td style="text-align: right;">80.3</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Robert Lewandowski</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">4.31</td>
+<td style="text-align: right;">79.7</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Romelu Lukaku</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">6.09</td>
+<td style="text-align: right;">89.6</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Edin Džeko</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">2.90</td>
+<td style="text-align: right;">96.6</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Erling Haaland</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">7.57</td>
+<td style="text-align: right;">90.6</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kylian Mbappé</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">5.30</td>
+<td style="text-align: right;">79.2</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aleksandar Mitrović</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">4.73</td>
+<td style="text-align: right;">92.3</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ali Daei</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">7.00</td>
+<td style="text-align: right;">83.7</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Miroslav Klose</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">4.00</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carlos Ruiz</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">4.27</td>
+<td style="text-align: right;">91.5</td>
+<td style="text-align: right;">17</td>
+</tr>
+</tbody>
+</table>
+<p>This section adds another layer of evidence: some players built huge totals over long careers, while others were more efficient and more explosive in shorter windows. That distinction matters when we judge the strongest all-around striker.</p>
+</section>
+<section id="build-your-own-goat-model" class="level1">
+<h1>7. Build your own GOAT model</h1>
+<p><strong>Question answered:</strong> How can you change the weights for volume, scoring quality, and efficiency to see who rises to the top?</p>
+<p><strong>What you can do:</strong> move the sliders below to set your preferred importance for total goals, open-play share, and goals per active year. The model will recalculate the ranking instantly.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Best player for the current weights: Cristiano Ronaldo (Portugal) with a score of 81.3.</code></pre>
+</div>
+</div>
+<table class="caption-top table">
+<caption>Ranking from the custom GOAT model using your selected weights.</caption>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 16%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">scorer</th>
+<th style="text-align: left;">team</th>
+<th style="text-align: right;">total_goals</th>
+<th style="text-align: right;">open_play_share</th>
+<th style="text-align: right;">goals_per_year</th>
+<th style="text-align: right;">model_score_pct</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cristiano Ronaldo</td>
+<td style="text-align: left;">Portugal</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">82.3</td>
+<td style="text-align: right;">5.64</td>
+<td style="text-align: right;">81.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Romelu Lukaku</td>
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">89.6</td>
+<td style="text-align: right;">6.09</td>
+<td style="text-align: right;">63.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Harry Kane</td>
+<td style="text-align: left;">England</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">68.0</td>
+<td style="text-align: right;">7.50</td>
+<td style="text-align: right;">63.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Erling Haaland</td>
+<td style="text-align: left;">Norway</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">90.6</td>
+<td style="text-align: right;">7.57</td>
+<td style="text-align: right;">62.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Said Bayazid</td>
+<td style="text-align: left;">Syria</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">58.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sándor Kocsis</td>
+<td style="text-align: left;">Hungary</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">58.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yaqoob Juma Al-Mukhaini</td>
+<td style="text-align: left;">Oman</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">100.0</td>
+<td style="text-align: right;">11.00</td>
+<td style="text-align: right;">58.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ali Daei</td>
+<td style="text-align: left;">Iran</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">83.7</td>
+<td style="text-align: right;">7.00</td>
+<td style="text-align: right;">57.7</td>
+</tr>
+</tbody>
+</table>
+<p>This version turns the model into a simple decision tool: the same dataset can now be evaluated from different perspectives depending on whether you value raw totals, open-play quality, or efficiency most.</p>
+</section>
+<section id="static-goat-ranking-model" class="level1">
+<h1>8. Static GOAT ranking model</h1>
 <p><strong>Question answered:</strong> How can we combine volume, scoring quality, and efficiency into a defensible composite score?</p>
 <p><strong>What data is shown:</strong> the model score for the top candidates and the components that feed it.</p>
 <p><strong>Best visualization:</strong> a horizontal ranking chart of model score.</p>
@@ -378,7 +623,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -483,7 +728,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This section is the culmination of the investigation: a model that does not simply reward the raw leader, but also gives credit to players who scored in open play and stayed productive across their international careers.</p>
 </section>
 <section id="final-conclusion-the-short-answer" class="level1">
-<h1>7. Final conclusion — the short answer</h1>
+<h1>9. Final conclusion — the short answer</h1>
 <p><strong>Question answered:</strong> Who do we pick as the best international striker based on this dataset and why?</p>
 <p><strong>What you will see:</strong> a short, chatty verdict and the compact evidence behind it.</p>
 <p><strong>Best visualization:</strong> the composite ranking chart above and a tiny summary table.</p>

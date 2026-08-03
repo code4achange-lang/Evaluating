@@ -4,14 +4,21 @@
     "href": "index.html",
     "title": "GOAT Striker Analysis",
     "section": "",
-    "text": "This five-minute analytics pitch is built like a professional sports investigation. It follows a clear storyline that separates raw numbers from real striker quality.\n\n\n\nA sharp introduction to the research question.\nA diagnosis of why total international goals is a limited ranking tool.\nA deeper look at scoring ability, efficiency, and era context.\nA composite GOAT ranking model based on evidence.\nA balanced recommendation and next-step caveats.\n\n\n\n\n\nIntroduction / Hook\nWhy total goals is not enough\nMeasuring scoring ability\nMeasuring efficiency\nComparing eras\nCreating a GOAT ranking model\nFinal conclusion\n\n\n\n\nInternational goals are the most visible striker metric, but the greatest striker also combines:\n\nconsistent impact,\nhigh-quality scoring,\nand strong performance across different eras.\n\nThe rest of the site turns that professional view into a data story."
+    "text": "Who do we think is the best international striker? This site walks through the data quickly and honestly, then gives a clear pick at the end.\nWhat you’ll see:\n\nA plain explanation of the problem (goals vs. greatness)\nA few smart metrics that actually matter\nA short, evidence-backed pick for the top player\n\nFollow the sections in the analysis for the full story — or skip to the conclusion to see our short answer."
+  },
+  {
+    "objectID": "index.html#quick-pitch",
+    "href": "index.html#quick-pitch",
+    "title": "GOAT Striker Analysis",
+    "section": "",
+    "text": "Who do we think is the best international striker? This site walks through the data quickly and honestly, then gives a clear pick at the end.\nWhat you’ll see:\n\nA plain explanation of the problem (goals vs. greatness)\nA few smart metrics that actually matter\nA short, evidence-backed pick for the top player\n\nFollow the sections in the analysis for the full story — or skip to the conclusion to see our short answer."
   },
   {
     "objectID": "analysis.html",
     "href": "analysis.html",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "Question answered: Who really deserves the label “greatest international striker,” and why this is more than a goals leaderboard?\nWhat data is shown: the dataset of every international goal, the leading scorers, and the metrics we will build from those records.\nBest visualization: a short top-10 goals table plus a teaser statement that the raw leader is only the starting point.\nInsight: The strongest case needs volume and context; raw totals are the first clue, not the final verdict.\nThe dataset records every international goal scored by an attacking player. In this investigation, we treat each goal as evidence and use it to test whether the all-time top names hold up once we measure quality, efficiency, and career profile.\n\nTop international scorers in the dataset, with goal type and career context.\n\n\n\n\n\n\n\n\n\n\nscorer\nteam\ntotal_goals\nactive_years\nopen_play_share\npenalty_share\n\n\n\n\nCristiano Ronaldo\nPortugal\n124\n22\n82.3\n17.7\n\n\nHarry Kane\nEngland\n75\n10\n68.0\n32.0\n\n\nLionel Messi\nArgentina\n71\n20\n80.3\n19.7\n\n\nRobert Lewandowski\nPoland\n69\n16\n79.7\n20.3\n\n\nRomelu Lukaku\nBelgium\n67\n11\n89.6\n10.4\n\n\nEdin Džeko\nBosnia and Herzegovina\n58\n20\n96.6\n3.4\n\n\nErling Haaland\nNorway\n53\n7\n90.6\n9.4\n\n\nKylian Mbappé\nFrance\n53\n10\n79.2\n20.8",
+    "text": "This opening chart gives the first impression of the debate. It shows the biggest international goal totals at a glance, but it also sets up the key question: does the player with the most goals automatically deserve the title of greatest striker?",
     "crumbs": [
       "Home",
       "Report",
@@ -19,11 +26,11 @@
     ]
   },
   {
-    "objectID": "analysis.html#scoring-volume",
-    "href": "analysis.html#scoring-volume",
+    "objectID": "analysis.html#opening-visual",
+    "href": "analysis.html#opening-visual",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "The strongest starting point is total goals. A player who dominates this measure has the clearest initial case.\n\n\n\n\n\n\n\n\n\n\nThe leading player stands out clearly.\nThis is the strongest first indicator of greatness because it measures direct output.",
+    "text": "This opening chart gives the first impression of the debate. It shows the biggest international goal totals at a glance, but it also sets up the key question: does the player with the most goals automatically deserve the title of greatest striker?",
     "crumbs": [
       "Home",
       "Report",
@@ -31,35 +38,11 @@
     ]
   },
   {
-    "objectID": "analysis.html#longevity-and-consistency",
-    "href": "analysis.html#longevity-and-consistency",
+    "objectID": "analysis.html#limitations-and-next-steps",
+    "href": "analysis.html#limitations-and-next-steps",
     "title": "Who Is the Greatest International Striker of All Time?",
-    "section": "",
-    "text": "Greatness is not only about a short peak. A long scoring career suggests durability and sustained quality.\n\n\n\n\n\n\n\n\n\n\nThe strongest candidates also score over many seasons.\nLongevity strengthens the case because it shows sustained elite performance.",
-    "crumbs": [
-      "Home",
-      "Report",
-      "Who Is the Greatest International Striker of All Time?"
-    ]
-  },
-  {
-    "objectID": "analysis.html#scoring-style",
-    "href": "analysis.html#scoring-style",
-    "title": "Who Is the Greatest International Striker of All Time?",
-    "section": "",
-    "text": "Open-play goals often reflect broader attacking quality than a penalty-heavy profile.\n\n\n\n\n\n\n\n\n\n\nThe leading scorers are mostly built on open-play production.\nThat makes the case for true striker quality stronger.",
-    "crumbs": [
-      "Home",
-      "Report",
-      "Who Is the Greatest International Striker of All Time?"
-    ]
-  },
-  {
-    "objectID": "analysis.html#final-takeaway",
-    "href": "analysis.html#final-takeaway",
-    "title": "Who Is the Greatest International Striker of All Time?",
-    "section": "",
-    "text": "The best overall answer is the player who combines:\n\nthe highest scoring total,\nthe longest sustained career,\nand the strongest open-play profile.\n\nThat combination offers the clearest evidence for being the greatest international striker of all time.",
+    "section": "Limitations and next steps",
+    "text": "Limitations and next steps\n\nThe dataset does not include minutes played or caps, so efficiency is proxied by goals per active year.\nWe do not have full match importance or opponent strength for every goal.\nAdding minutes, competition type, and match result would let us refine the model (and maybe change the pick).",
     "crumbs": [
       "Home",
       "Report",
@@ -96,39 +79,6 @@
     "title": "About",
     "section": "",
     "text": "This project is a sports analytics investigation that asks a focused question: who is the greatest international soccer striker of all time?\n\n\nThe dataset records every international goal by scorer, including:\n\nmatch date,\nnational team,\nscorer name,\ngoal minute,\npenalty status,\ngoal type,\nyear and decade.\n\nEach row is one goal, which means the analysis is built from the goals themselves rather than from match summaries.\n\n\n\nThe report evaluates the candidates with a professional lens:\n\nraw scoring volume,\nscoring quality through open-play share,\ncareer consistency and efficiency,\nera context,\na composite GOAT ranking model.\n\n\n\n\nGreatest-striker discussions are common in soccer, but a strong analytic argument requires more than a leaderboard. This project emphasizes evidence, transparency, and the limits of the available data.\n\n\n\nThe current dataset does not include every context needed for a final historical judgement:\n\nminutes played,\nnumber of caps,\nopponent strength,\nmatch importance.\n\nThose are valuable next steps for a deeper version of this project."
-  },
-  {
-    "objectID": "analysis.html#limitations-and-next-steps",
-    "href": "analysis.html#limitations-and-next-steps",
-    "title": "Who Is the Greatest International Striker of All Time?",
-    "section": "Limitations and next steps",
-    "text": "Limitations and next steps\n\nThe dataset does not include minutes played or caps, so efficiency is proxied by goals per active year.\nWe do not have full match importance or opponent strength for every goal.\nAdding minutes, competition type, and match result would let us refine the model (and maybe change the pick).",
-    "crumbs": [
-      "Home",
-      "Report",
-      "Who Is the Greatest International Striker of All Time?"
-    ]
-  },
-  {
-    "objectID": "index.html#what-this-site-delivers",
-    "href": "index.html#what-this-site-delivers",
-    "title": "GOAT Striker Analysis",
-    "section": "",
-    "text": "A sharp introduction to the research question.\nA diagnosis of why total international goals is a limited ranking tool.\nA deeper look at scoring ability, efficiency, and era context.\nA composite GOAT ranking model based on evidence.\nA balanced recommendation and next-step caveats."
-  },
-  {
-    "objectID": "index.html#follow-the-story",
-    "href": "index.html#follow-the-story",
-    "title": "GOAT Striker Analysis",
-    "section": "",
-    "text": "Introduction / Hook\nWhy total goals is not enough\nMeasuring scoring ability\nMeasuring efficiency\nComparing eras\nCreating a GOAT ranking model\nFinal conclusion"
-  },
-  {
-    "objectID": "index.html#why-this-question-matters",
-    "href": "index.html#why-this-question-matters",
-    "title": "GOAT Striker Analysis",
-    "section": "",
-    "text": "International goals are the most visible striker metric, but the greatest striker also combines:\n\nconsistent impact,\nhigh-quality scoring,\nand strong performance across different eras.\n\nThe rest of the site turns that professional view into a data story."
   },
   {
     "objectID": "about.html#what-the-data-contains",

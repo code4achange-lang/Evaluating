@@ -12,6 +12,7 @@ website:
         href: analysis.qmd
       - text: "About"
         href: about.qmd
+        file: about.qmd
   sidebar:
     style: "docked"
     contents:

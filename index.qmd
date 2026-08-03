@@ -6,14 +6,34 @@ format:
     toc: false
 ---
 
-## Quick pitch
+::: {.hero .p-4 .p-md-5 .rounded-4 .border .shadow-sm style="background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%); color: white;"}
+# Who is the Greatest International Soccer Striker of All Time?
 
-Who do we think is the best international striker? This site walks through the data quickly and honestly, then gives a clear pick at the end.
+<p class="lead mb-4">This is the debate that never gets old: goals tell part of the story, but greatness is shaped by impact, consistency, and the moments that define a career.</p>
 
-What you'll see:
+<p class="mb-4">In just 20–30 seconds, this project pitches a clear answer: by combining international scoring records with smarter performance measures, we turn a fan debate into a data-driven case for the true GOAT striker.</p>
 
-- A plain explanation of the problem (goals vs. greatness)
-- A few smart metrics that actually matter
-- A short, evidence-backed pick for the top player
+<a href="analysis.qmd" class="btn btn-light btn-lg">Open the analysis</a>
+:::
 
-Follow the sections in the analysis for the full story — or skip to the conclusion to see our short answer.
+::: {.grid .g-4 .mt-3}
+::: {.g-col-12 .g-col-md-6}
+### Why this question matters
+
+- It brings together football history, statistics, and the meaning of greatness.
+- A striker is judged not only by goals, but by influence on big matches and long-term consistency.
+- The answer helps frame the sport’s greatest careers in a way that is clear and evidence-based.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### What the dataset reveals
+
+- The project uses a cleaned international goalscorer dataset with player-level scoring information.
+- Data science methods help compare players across totals, rate-based measures, and tournament relevance.
+- The analysis turns raw numbers into a concise, presentation-ready conclusion.
+:::
+:::
+
+::: {.alert .alert-info .mt-4}
+<strong>Presentation-ready summary:</strong> this site is built to introduce the question quickly, explain the method simply, and guide the audience to a confident verdict.
+:::
