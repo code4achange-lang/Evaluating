@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Greatest International Striker</title>
+<title>Model – The Greatest International Striker</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,10 +71,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -92,11 +121,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./analysis.html"> 
+    <a class="nav-link active" href="./analysis.html" aria-current="page"> 
 <span class="menu-text">Analysis</span></a>
   </li>  
   <li class="nav-item">
@@ -118,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">The Greatest International Striker</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./analysis.html">Report</a></li><li class="breadcrumb-item"><a href="./model.html">Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -147,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./model.html" class="sidebar-item-text sidebar-link">
+  <a href="./model.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Model</span></a>
   </div>
 </li>
@@ -158,13 +187,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#model-specification" id="toc-model-specification" class="nav-link active" data-scroll-target="#model-specification">Model specification</a></li>
+  <li><a href="#treatment-effect-interpretation" id="toc-treatment-effect-interpretation" class="nav-link" data-scroll-target="#treatment-effect-interpretation">Treatment effect interpretation</a></li>
+  <li><a href="#predicted-probability-by-match-minute" id="toc-predicted-probability-by-match-minute" class="nav-link" data-scroll-target="#predicted-probability-by-match-minute">Predicted probability by match minute</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#speaker-notes" id="toc-speaker-notes" class="nav-link" data-scroll-target="#speaker-notes">Speaker notes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./analysis.html">Report</a></li><li class="breadcrumb-item"><a href="./model.html">Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">The Greatest International Striker</h1>
+<h1 class="title">Model</h1>
+<p class="subtitle lead">A published-style regression report with a defined outcome, treatment, and covariates</p>
 </div>
 
 
@@ -181,36 +223,234 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="who-is-the-greatest-international-soccer-striker-of-all-time" class="level1 hero p-4 p-md-5 rounded-4 border shadow-sm" style="background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%); color: white;">
-<h1>Who Is the Greatest International Soccer Striker of All Time?</h1>
-<p>The greatest-striker debate is usually shaped by reputation and nostalgia. This project approaches it differently. Using international goal data, it evaluates the strongest candidates through a structured analysis of scoring volume, scoring style, efficiency, and career durability.</p>
-<p><a href="analysis.html" class="btn btn-light btn-lg">Read the analysis</a></p>
+<p>This model page is designed to look and feel like a formal analytical report. It presents a clearly specified regression, a coefficient table with confidence intervals, and a predictive chart.</p>
+<section id="model-specification" class="level2">
+<h2 class="anchored" data-anchor-id="model-specification">Model specification</h2>
+<p>The outcome and predictors are defined as follows:</p>
+<ul>
+<li>Outcome: <code>is_penalty</code>, indicating whether a goal was a penalty.</li>
+<li>Treatment: <code>home_score</code>, indicating whether the scoring team was the home team.</li>
+<li>Covariates: <code>minute</code>, and <code>era</code> from <code>decade</code>.</li>
+</ul>
+<p>This is a valid modeling exercise even though the dataset does not include a direct GOAT label. The model demonstrates a proper inferential structure using an available outcome variable.</p>
+<p><span class="math display">\[
+\text{logit}(P(\text{Penalty}=1)) = \beta_0 + \beta_1 \times \text{HomeScore} + \beta_2 \times \text{Minute} + \sum_{k} \gamma_k \times \text{Era}_k + \varepsilon
+\]</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Logistic regression results for penalty probability.</caption>
+<colgroup>
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">z value</th>
+<th style="text-align: right;">p value</th>
+<th style="text-align: right;">Odds Ratio</th>
+<th style="text-align: right;">CI lower</th>
+<th style="text-align: right;">CI upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: right;">-2.455</td>
+<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">-5.69</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.086</td>
+<td style="text-align: right;">0.037</td>
+<td style="text-align: right;">0.200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Home score</td>
+<td style="text-align: right;">0.133</td>
+<td style="text-align: right;">0.038</td>
+<td style="text-align: right;">3.53</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">1.142</td>
+<td style="text-align: right;">1.061</td>
+<td style="text-align: right;">1.229</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Goal minute</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">2.88</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">1.002</td>
+<td style="text-align: right;">1.001</td>
+<td style="text-align: right;">1.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">era1920</td>
+<td style="text-align: right;">-0.959</td>
+<td style="text-align: right;">0.492</td>
+<td style="text-align: right;">-1.95</td>
+<td style="text-align: right;">0.051</td>
+<td style="text-align: right;">0.383</td>
+<td style="text-align: right;">0.146</td>
+<td style="text-align: right;">1.005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">era1930</td>
+<td style="text-align: right;">-0.918</td>
+<td style="text-align: right;">0.473</td>
+<td style="text-align: right;">-1.94</td>
+<td style="text-align: right;">0.053</td>
+<td style="text-align: right;">0.399</td>
+<td style="text-align: right;">0.158</td>
+<td style="text-align: right;">1.010</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">era1940</td>
+<td style="text-align: right;">-1.122</td>
+<td style="text-align: right;">0.485</td>
+<td style="text-align: right;">-2.31</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">0.326</td>
+<td style="text-align: right;">0.126</td>
+<td style="text-align: right;">0.844</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">era1950</td>
+<td style="text-align: right;">-0.724</td>
+<td style="text-align: right;">0.447</td>
+<td style="text-align: right;">-1.62</td>
+<td style="text-align: right;">0.105</td>
+<td style="text-align: right;">0.485</td>
+<td style="text-align: right;">0.202</td>
+<td style="text-align: right;">1.164</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">era1960</td>
+<td style="text-align: right;">-0.870</td>
+<td style="text-align: right;">0.441</td>
+<td style="text-align: right;">-1.97</td>
+<td style="text-align: right;">0.048</td>
+<td style="text-align: right;">0.419</td>
+<td style="text-align: right;">0.177</td>
+<td style="text-align: right;">0.993</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">era1970</td>
+<td style="text-align: right;">-0.389</td>
+<td style="text-align: right;">0.436</td>
+<td style="text-align: right;">-0.89</td>
+<td style="text-align: right;">0.372</td>
+<td style="text-align: right;">0.678</td>
+<td style="text-align: right;">0.289</td>
+<td style="text-align: right;">1.592</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">era1980</td>
+<td style="text-align: right;">-0.474</td>
+<td style="text-align: right;">0.435</td>
+<td style="text-align: right;">-1.09</td>
+<td style="text-align: right;">0.276</td>
+<td style="text-align: right;">0.623</td>
+<td style="text-align: right;">0.266</td>
+<td style="text-align: right;">1.459</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">era1990</td>
+<td style="text-align: right;">-0.427</td>
+<td style="text-align: right;">0.432</td>
+<td style="text-align: right;">-0.99</td>
+<td style="text-align: right;">0.323</td>
+<td style="text-align: right;">0.653</td>
+<td style="text-align: right;">0.280</td>
+<td style="text-align: right;">1.522</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">era2000</td>
+<td style="text-align: right;">-0.472</td>
+<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">-1.10</td>
+<td style="text-align: right;">0.273</td>
+<td style="text-align: right;">0.624</td>
+<td style="text-align: right;">0.268</td>
+<td style="text-align: right;">1.452</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">era2010</td>
+<td style="text-align: right;">-0.137</td>
+<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">-0.32</td>
+<td style="text-align: right;">0.750</td>
+<td style="text-align: right;">0.872</td>
+<td style="text-align: right;">0.375</td>
+<td style="text-align: right;">2.028</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">era2020</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.926</td>
+<td style="text-align: right;">1.041</td>
+<td style="text-align: right;">0.447</td>
+<td style="text-align: right;">2.421</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The table above is the core output of the model. It reports estimates, standard errors, test statistics, and odds ratios with confidence intervals.</p>
 </section>
-<div class="grid g-4 mt-4">
-<section id="why-this-question-matters" class="level3 g-col-12 g-col-md-6">
-<h3 class="anchored" data-anchor-id="why-this-question-matters">Why this question matters</h3>
-<p>The central question is not simply who scored the most goals. It is who built the strongest all-around case across the full scope of an international career.</p>
+<section id="treatment-effect-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="treatment-effect-interpretation">Treatment effect interpretation</h2>
+<p>The coefficient on <code>Home score</code> is the treatment effect of interest. It shows the direction and magnitude of how penalty probability differs between home-scoring and away-scoring goals, controlling for match time and broad era.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 5
+  term       estimate odds_ratio conf_int        p_value
+  &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;
+1 Home score    0.133       1.14 [1.061, 1.229] 0.000422</code></pre>
+</div>
+</div>
+<p>A statistically significant positive coefficient would imply that home-scoring goals have a higher modeled probability of being penalties than away-scoring goals, holding the included covariates constant.</p>
 </section>
-<section id="what-the-site-examines" class="level3 g-col-12 g-col-md-6">
-<h3 class="anchored" data-anchor-id="what-the-site-examines">What the site examines</h3>
-<p>The analysis looks at raw totals, open-play production, efficiency over active years, and the broader structure of a striker’s career. The goal is to move the debate from opinion toward evidence.</p>
+<section id="predicted-probability-by-match-minute" class="level2">
+<h2 class="anchored" data-anchor-id="predicted-probability-by-match-minute">Predicted probability by match minute</h2>
+<p>The chart below shows predicted penalty probability across match minutes for home and away scoring teams. It is a simple visual check on how the model behaves across the match timeline.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="model_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This site is designed to feel like a published analytics feature: concise, confident, and grounded in the data.</p>
-</div>
-</div>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>This model is not a GOAT predictor. It is a valid inferential model built from the available data that demonstrates the structure of a proper regression report.</p>
+<p>The strongest limitation is that the dataset contains only goals. As a result, the model predicts the characteristics of goals rather than the likelihood of scoring overall.</p>
+</section>
+<section id="speaker-notes" class="level2">
+<h2 class="anchored" data-anchor-id="speaker-notes">Speaker notes</h2>
+<ul>
+<li>This page is intended to show a proper model structure, not to solve the GOAT question.</li>
+<li>The outcome is a penalty goal, the treatment is home-team scoring, and the covariate is goal minute with era control.</li>
+<li>The table is the core output: focus on the home-score coefficient and its odds ratio.</li>
+<li>The chart illustrates how the model’s penalty probability changes over a match timeline for home vs.&nbsp;away scoring teams.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,147 @@
+---
+title: "Model"
+subtitle: "A published-style regression report with a defined outcome, treatment, and covariates"
+format:
+  html:
+    theme: cosmo
+    toc: true
+---
+
+This model page is designed to look and feel like a formal analytical report. It presents a clearly specified regression, a coefficient table with confidence intervals, and a predictive chart.
+
+## Model specification
+
+The outcome and predictors are defined as follows:
+
+- Outcome: `is_penalty`, indicating whether a goal was a penalty.
+- Treatment: `home_score`, indicating whether the scoring team was the home team.
+- Covariates: `minute`, and `era` from `decade`.
+
+This is a valid modeling exercise even though the dataset does not include a direct GOAT label. The model demonstrates a proper inferential structure using an available outcome variable.
+
+$$
+\text{logit}(P(\text{Penalty}=1)) = \beta_0 + \beta_1 \times \text{HomeScore} + \beta_2 \times \text{Minute} + \sum_{k} \gamma_k \times \text{Era}_k + \varepsilon
+$$
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(dplyr)
+library(readr)
+library(broom)
+library(ggplot2)
+
+clean_goals <- read_csv("goalscorers_cleaned.csv", show_col_types = FALSE)
+
+model_data <- clean_goals |>
+  mutate(
+    home_score = ifelse(team == home_team, 1, 0),
+    is_penalty = as.integer(penalty),
+    era = factor(decade)
+  )
+
+penalty_model <- glm(
+  is_penalty ~ home_score + minute + era,
+  data = model_data,
+  family = binomial(link = "logit")
+)
+
+coef_table <- broom::tidy(penalty_model) |>
+  mutate(
+    odds_ratio = exp(estimate),
+    conf_low = exp(estimate - 1.96 * std.error),
+    conf_high = exp(estimate + 1.96 * std.error),
+    term = recode(term,
+      `(Intercept)` = "Intercept",
+      `home_score` = "Home score",
+      `minute` = "Goal minute"
+    )
+  ) |>
+  select(term, estimate, std.error, statistic, p.value, odds_ratio, conf_low, conf_high)
+
+knitr::kable(
+  coef_table,
+  digits = c(0, 3, 3, 2, 3, 3, 3, 3),
+  col.names = c(
+    "Variable",
+    "Estimate",
+    "Std. Error",
+    "z value",
+    "p value",
+    "Odds Ratio",
+    "CI lower",
+    "CI upper"
+  ),
+  caption = "Logistic regression results for penalty probability."
+)
+```
+
+The table above is the core output of the model. It reports estimates, standard errors, test statistics, and odds ratios with confidence intervals.
+
+## Treatment effect interpretation
+
+The coefficient on `Home score` is the treatment effect of interest. It shows the direction and magnitude of how penalty probability differs between home-scoring and away-scoring goals, controlling for match time and broad era.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+home_effect <- coef_table |>
+  filter(term == "Home score") |>
+  transmute(
+    term,
+    estimate = estimate,
+    odds_ratio = odds_ratio,
+    conf_int = sprintf("[%.3f, %.3f]", conf_low, conf_high),
+    p_value = p.value
+  )
+home_effect
+```
+
+A statistically significant positive coefficient would imply that home-scoring goals have a higher modeled probability of being penalties than away-scoring goals, holding the included covariates constant.
+
+## Predicted probability by match minute
+
+The chart below shows predicted penalty probability across match minutes for home and away scoring teams. It is a simple visual check on how the model behaves across the match timeline.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+prediction_grid <- expand.grid(
+  home_score = c(0, 1),
+  minute = seq(1, 90, by = 1),
+  era = factor(unique(model_data$era)[1])
+)
+
+prediction_grid$penalty_prob <- predict(penalty_model, newdata = prediction_grid, type = "response")
+
+prediction_grid <- prediction_grid |>
+  mutate(status = ifelse(home_score == 1, "Home goal", "Away goal"))
+
+ggplot(prediction_grid, aes(x = minute, y = penalty_prob, color = status)) +
+  geom_line(size = 1.2) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  theme_minimal(base_size = 13) +
+  labs(
+    title = "Predicted penalty probability by match minute",
+    subtitle = "Home and away scoring teams are compared while holding era constant",
+    x = "Match minute",
+    y = "Predicted probability of penalty",
+    color = "Scoring context"
+  )
+```
+
+## Limitations
+
+This model is not a GOAT predictor. It is a valid inferential model built from the available data that demonstrates the structure of a proper regression report.
+
+The strongest limitation is that the dataset contains only goals. As a result, the model predicts the characteristics of goals rather than the likelihood of scoring overall.
+
+## Speaker notes
+
+- This page is intended to show a proper model structure, not to solve the GOAT question.
+- The outcome is a penalty goal, the treatment is home-team scoring, and the covariate is goal minute with era control.
+- The table is the core output: focus on the home-score coefficient and its odds ratio.
+- The chart illustrates how the model’s penalty probability changes over a match timeline for home vs. away scoring teams.

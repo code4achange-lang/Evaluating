@@ -1,50 +1,54 @@
 ---
-title: "About"
+title: "About the Project"
 format:
   html:
     theme: cosmo
     toc: false
 ---
 
-# About this Project
+# About the Project
 
-This project is a sports analytics investigation that asks a focused question: who is the greatest international soccer striker of all time?
+This website is the published result of an independent data science project focused on one of soccer’s most persistent debates: who is the greatest international striker of all time?
 
-## What the data contains
+## Why the project exists
 
-The dataset records every international goal by scorer, including:
+The question is simple to ask and difficult to answer. Traditional discussions often hinge on reputation, era, or personal preference. This project instead uses structured evidence from international goal data to evaluate the strongest candidates across several measurable dimensions.
 
-- match date,
-- national team,
-- scorer name,
-- goal minute,
-- penalty status,
-- goal type,
-- year and decade.
+## What the dataset contains
 
-Each row is one goal, which means the analysis is built from the goals themselves rather than from match summaries.
+The dataset records international goals with enough detail to support a meaningful comparison of scoring profiles. Each row captures a single goal and includes fields such as:
 
-## How the analysis works
+- the date of the match,
+- the national team,
+- the scorer,
+- the minute of the goal,
+- whether the goal came from a penalty,
+- the goal type,
+- the year and decade.
 
-The report evaluates the candidates with a professional lens:
+That structure makes it possible to study not only who scored the most, but how those goals were produced.
+
+## How the analysis is built
+
+The site evaluates the leading candidates through a combination of:
 
 - raw scoring volume,
-- scoring quality through open-play share,
-- career consistency and efficiency,
-- era context,
-- a composite GOAT ranking model.
+- open-play share as a measure of scoring quality,
+- efficiency across active years,
+- career longevity and consistency,
+- a composite model that weighs those signals together.
 
-## Why this matters
+This is not a fully comprehensive historical audit. It is a disciplined statistical framework for comparing elite international strikers in a transparent way.
 
-Greatest-striker discussions are common in soccer, but a strong analytic argument requires more than a leaderboard. This project emphasizes evidence, transparency, and the limits of the available data.
+## What the project does and does not claim
 
-## What is not shown
+The analysis is designed to sharpen the discussion rather than settle it with absolute certainty. The available data provides a strong foundation, but it cannot capture every layer of context that shapes a historical judgment.
 
-The current dataset does not include every context needed for a final historical judgement:
+The current dataset does not include factors such as:
 
 - minutes played,
-- number of caps,
+- caps earned,
 - opponent strength,
 - match importance.
 
-Those are valuable next steps for a deeper version of this project.
+Those omissions matter, and they are important limitations. Even so, the project offers a credible and defensible first look at the question through a modern analytics lens.

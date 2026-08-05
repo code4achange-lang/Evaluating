@@ -1,24 +1,105 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "GOAT Striker Analysis",
+    "objectID": "model.html",
+    "href": "model.html",
+    "title": "Model",
     "section": "",
-    "text": "Who is the Greatest International Soccer Striker of All Time?\n\nThe debate is simple to ask and difficult to answer: a striker can score brilliantly, but greatness also depends on consistency, tournament impact, and career-defining moments.\n\n\nIn a 20–30 second pitch, this project turns that debate into a data-backed argument by combining international goals with performance measures that capture the full story behind elite strikers.\n\nOpen the analysis\n\n\n\n\n         Goals Impact Consistency\n\n\n\n&lt;span&gt;International scoring records&lt;/span&gt;\n&lt;strong&gt;Goal totals&lt;/strong&gt;\n\n\n&lt;span&gt;Major tournament influence&lt;/span&gt;\n&lt;strong&gt;Impact&lt;/strong&gt;\n\n\n&lt;span&gt;Career longevity&lt;/span&gt;\n&lt;strong&gt;Consistency&lt;/strong&gt;\n\n\n\n\n\n\n\n\nWhy this question matters\n\nIt brings together football history, statistics, and the meaning of greatness.\nA striker is judged not only by goals, but by influence on big matches and long-term consistency.\nThe answer helps frame the sport’s greatest careers in a way that is clear and evidence-based.\n\n\n\nWhat the dataset reveals\n\nThe project uses a cleaned international goalscorer dataset with player-level scoring information.\nData science methods help compare players across totals, rate-based measures, and tournament relevance.\nThe analysis turns raw numbers into a concise, presentation-ready conclusion.\n\n\n\n\nPresentation-ready summary: this site is built to introduce the question quickly, explain the method simply, and guide the audience to a confident verdict."
+    "text": "This model page is designed to look and feel like a formal analytical report. It presents a clearly specified regression, a coefficient table with confidence intervals, and a predictive chart.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Model"
+    ]
   },
   {
-    "objectID": "index.html#quick-pitch",
-    "href": "index.html#quick-pitch",
-    "title": "GOAT Striker Analysis",
+    "objectID": "model.html#model-specification",
+    "href": "model.html#model-specification",
+    "title": "Model",
+    "section": "Model specification",
+    "text": "Model specification\nThe outcome and predictors are defined as follows:\n\nOutcome: is_penalty, indicating whether a goal was a penalty.\nTreatment: home_score, indicating whether the scoring team was the home team.\nCovariates: minute, and era from decade.\n\nThis is a valid modeling exercise even though the dataset does not include a direct GOAT label. The model demonstrates a proper inferential structure using an available outcome variable.\n\\[\n\\text{logit}(P(\\text{Penalty}=1)) = \\beta_0 + \\beta_1 \\times \\text{HomeScore} + \\beta_2 \\times \\text{Minute} + \\sum_{k} \\gamma_k \\times \\text{Era}_k + \\varepsilon\n\\]\n\n\n\nLogistic regression results for penalty probability.\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nEstimate\nStd. Error\nz value\np value\nOdds Ratio\nCI lower\nCI upper\n\n\n\n\nIntercept\n-2.455\n0.431\n-5.69\n0.000\n0.086\n0.037\n0.200\n\n\nHome score\n0.133\n0.038\n3.53\n0.000\n1.142\n1.061\n1.229\n\n\nGoal minute\n0.002\n0.001\n2.88\n0.004\n1.002\n1.001\n1.003\n\n\nera1920\n-0.959\n0.492\n-1.95\n0.051\n0.383\n0.146\n1.005\n\n\nera1930\n-0.918\n0.473\n-1.94\n0.053\n0.399\n0.158\n1.010\n\n\nera1940\n-1.122\n0.485\n-2.31\n0.021\n0.326\n0.126\n0.844\n\n\nera1950\n-0.724\n0.447\n-1.62\n0.105\n0.485\n0.202\n1.164\n\n\nera1960\n-0.870\n0.441\n-1.97\n0.048\n0.419\n0.177\n0.993\n\n\nera1970\n-0.389\n0.436\n-0.89\n0.372\n0.678\n0.289\n1.592\n\n\nera1980\n-0.474\n0.435\n-1.09\n0.276\n0.623\n0.266\n1.459\n\n\nera1990\n-0.427\n0.432\n-0.99\n0.323\n0.653\n0.280\n1.522\n\n\nera2000\n-0.472\n0.431\n-1.10\n0.273\n0.624\n0.268\n1.452\n\n\nera2010\n-0.137\n0.431\n-0.32\n0.750\n0.872\n0.375\n2.028\n\n\nera2020\n0.040\n0.431\n0.09\n0.926\n1.041\n0.447\n2.421\n\n\n\n\n\nThe table above is the core output of the model. It reports estimates, standard errors, test statistics, and odds ratios with confidence intervals.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Model"
+    ]
+  },
+  {
+    "objectID": "model.html#treatment-effect-interpretation",
+    "href": "model.html#treatment-effect-interpretation",
+    "title": "Model",
+    "section": "Treatment effect interpretation",
+    "text": "Treatment effect interpretation\nThe coefficient on Home score is the treatment effect of interest. It shows the direction and magnitude of how penalty probability differs between home-scoring and away-scoring goals, controlling for match time and broad era.\n\n\n# A tibble: 1 × 5\n  term       estimate odds_ratio conf_int        p_value\n  &lt;chr&gt;         &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;\n1 Home score    0.133       1.14 [1.061, 1.229] 0.000422\n\n\nA statistically significant positive coefficient would imply that home-scoring goals have a higher modeled probability of being penalties than away-scoring goals, holding the included covariates constant.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Model"
+    ]
+  },
+  {
+    "objectID": "model.html#predicted-probability-by-match-minute",
+    "href": "model.html#predicted-probability-by-match-minute",
+    "title": "Model",
+    "section": "Predicted probability by match minute",
+    "text": "Predicted probability by match minute\nThe chart below shows predicted penalty probability across match minutes for home and away scoring teams. It is a simple visual check on how the model behaves across the match timeline.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Model"
+    ]
+  },
+  {
+    "objectID": "model.html#limitations",
+    "href": "model.html#limitations",
+    "title": "Model",
+    "section": "Limitations",
+    "text": "Limitations\nThis model is not a GOAT predictor. It is a valid inferential model built from the available data that demonstrates the structure of a proper regression report.\nThe strongest limitation is that the dataset contains only goals. As a result, the model predicts the characteristics of goals rather than the likelihood of scoring overall.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Model"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About the Project",
     "section": "",
-    "text": "Who do we think is the best international striker? This site walks through the data quickly and honestly, then gives a clear pick at the end.\nWhat you’ll see:\n\nA plain explanation of the problem (goals vs. greatness)\nA few smart metrics that actually matter\nA short, evidence-backed pick for the top player\n\nFollow the sections in the analysis for the full story — or skip to the conclusion to see our short answer."
+    "text": "This website is the published result of an independent data science project focused on one of soccer’s most persistent debates: who is the greatest international striker of all time?\n\n\nThe question is simple to ask and difficult to answer. Traditional discussions often hinge on reputation, era, or personal preference. This project instead uses structured evidence from international goal data to evaluate the strongest candidates across several measurable dimensions.\n\n\n\nThe dataset records international goals with enough detail to support a meaningful comparison of scoring profiles. Each row captures a single goal and includes fields such as:\n\nthe date of the match,\nthe national team,\nthe scorer,\nthe minute of the goal,\nwhether the goal came from a penalty,\nthe goal type,\nthe year and decade.\n\nThat structure makes it possible to study not only who scored the most, but how those goals were produced.\n\n\n\nThe site evaluates the leading candidates through a combination of:\n\nraw scoring volume,\nopen-play share as a measure of scoring quality,\nefficiency across active years,\ncareer longevity and consistency,\na composite model that weighs those signals together.\n\nThis is not a fully comprehensive historical audit. It is a disciplined statistical framework for comparing elite international strikers in a transparent way.\n\n\n\nThe analysis is designed to sharpen the discussion rather than settle it with absolute certainty. The available data provides a strong foundation, but it cannot capture every layer of context that shapes a historical judgment.\nThe current dataset does not include factors such as:\n\nminutes played,\ncaps earned,\nopponent strength,\nmatch importance.\n\nThose omissions matter, and they are important limitations. Even so, the project offers a credible and defensible first look at the question through a modern analytics lens."
+  },
+  {
+    "objectID": "about.html#why-the-project-exists",
+    "href": "about.html#why-the-project-exists",
+    "title": "About the Project",
+    "section": "",
+    "text": "The question is simple to ask and difficult to answer. Traditional discussions often hinge on reputation, era, or personal preference. This project instead uses structured evidence from international goal data to evaluate the strongest candidates across several measurable dimensions."
+  },
+  {
+    "objectID": "about.html#what-the-dataset-contains",
+    "href": "about.html#what-the-dataset-contains",
+    "title": "About the Project",
+    "section": "",
+    "text": "The dataset records international goals with enough detail to support a meaningful comparison of scoring profiles. Each row captures a single goal and includes fields such as:\n\nthe date of the match,\nthe national team,\nthe scorer,\nthe minute of the goal,\nwhether the goal came from a penalty,\nthe goal type,\nthe year and decade.\n\nThat structure makes it possible to study not only who scored the most, but how those goals were produced."
+  },
+  {
+    "objectID": "about.html#how-the-analysis-is-built",
+    "href": "about.html#how-the-analysis-is-built",
+    "title": "About the Project",
+    "section": "",
+    "text": "The site evaluates the leading candidates through a combination of:\n\nraw scoring volume,\nopen-play share as a measure of scoring quality,\nefficiency across active years,\ncareer longevity and consistency,\na composite model that weighs those signals together.\n\nThis is not a fully comprehensive historical audit. It is a disciplined statistical framework for comparing elite international strikers in a transparent way."
+  },
+  {
+    "objectID": "about.html#what-the-project-does-and-does-not-claim",
+    "href": "about.html#what-the-project-does-and-does-not-claim",
+    "title": "About the Project",
+    "section": "",
+    "text": "The analysis is designed to sharpen the discussion rather than settle it with absolute certainty. The available data provides a strong foundation, but it cannot capture every layer of context that shapes a historical judgment.\nThe current dataset does not include factors such as:\n\nminutes played,\ncaps earned,\nopponent strength,\nmatch importance.\n\nThose omissions matter, and they are important limitations. Even so, the project offers a credible and defensible first look at the question through a modern analytics lens."
   },
   {
     "objectID": "analysis.html",
     "href": "analysis.html",
     "title": "Who Is the Greatest International Striker of All Time?",
     "section": "",
-    "text": "Who already stands out in the international scoring race? This chart gives the audience the first impression: the biggest names are visible immediately, and the takeaway is simple—raw totals create the shortlist, but they do not yet prove greatness. That is the bridge to the next question: if goals alone are not enough, what else should we measure?",
+    "text": "The debate over the greatest international striker is usually framed by memory, reputation, and personal preference. That tradition is understandable, but it leaves a major gap. A serious historical claim should be tested against measurable evidence.\nThis project uses international goal data to build a more disciplined case. It evaluates the leading candidates on three central questions: how much they scored, how they scored, and how efficiently they sustained elite production over time.",
     "crumbs": [
       "Home",
       "Report",
@@ -26,11 +107,59 @@
     ]
   },
   {
-    "objectID": "analysis.html#opening-visual",
-    "href": "analysis.html#opening-visual",
+    "objectID": "analysis.html#the-scoring-leaderboard",
+    "href": "analysis.html#the-scoring-leaderboard",
     "title": "Who Is the Greatest International Striker of All Time?",
-    "section": "",
-    "text": "Who already stands out in the international scoring race? This chart gives the audience the first impression: the biggest names are visible immediately, and the takeaway is simple—raw totals create the shortlist, but they do not yet prove greatness. That is the bridge to the next question: if goals alone are not enough, what else should we measure?",
+    "section": "The scoring leaderboard",
+    "text": "The scoring leaderboard\nThe starting point is straightforward. Raw goal totals establish the shortlist of players who deserve serious consideration. The leaderboard does not answer the question by itself, but it provides the first layer of evidence.\n\n\n\n\n\n\n\n\n\nFrom there, the question becomes more interesting. A striker who ranks at the top of the scoring list is not automatically the strongest all-around candidate. The evidence must be tested against the way those goals were produced.\n\nLeading international scorers by total goals, with scoring style and career context.\n\n\n\n\n\n\n\n\n\n\nscorer\nteam\ntotal_goals\nactive_years\nopen_play_share\npenalty_share\n\n\n\n\nCristiano Ronaldo\nPortugal\n124\n22\n82.3\n17.7\n\n\nHarry Kane\nEngland\n75\n10\n68.0\n32.0\n\n\nLionel Messi\nArgentina\n71\n20\n80.3\n19.7\n\n\nRobert Lewandowski\nPoland\n69\n16\n79.7\n20.3\n\n\nRomelu Lukaku\nBelgium\n67\n11\n89.6\n10.4\n\n\nEdin Džeko\nBosnia and Herzegovina\n58\n20\n96.6\n3.4\n\n\nErling Haaland\nNorway\n53\n7\n90.6\n9.4\n\n\nKylian Mbappé\nFrance\n53\n10\n79.2\n20.8",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#goal-production-reveals-the-profile",
+    "href": "analysis.html#goal-production-reveals-the-profile",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "Goal production reveals the profile",
+    "text": "Goal production reveals the profile\nA striker’s value is not defined only by how many goals are scored. It is also shaped by how those goals are created. Open-play goals are often the strongest signal of complete attacking quality because they require movement, timing, and a higher level of game involvement than penalties alone.\n\n\n\n\n\n\n\n\n\nThat distinction matters because a striker who scores heavily from penalties may still be elite, but the profile is different from someone whose output is rooted in open play and sustained attacking involvement.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#efficiency-separates-volume-from-sustained-excellence",
+    "href": "analysis.html#efficiency-separates-volume-from-sustained-excellence",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "Efficiency separates volume from sustained excellence",
+    "text": "Efficiency separates volume from sustained excellence\nThe next layer is efficiency. A player who produced goals at a high rate over fewer active years can be just as compelling as a career-long scorer who accumulated totals over a longer span. In that sense, goals per active year helps measure how efficiently a striker turned opportunity into output.\n\n\n\n\n\n\n\n\n\nThis dimension is important because elite strikers are not only defined by the size of their totals. They are also defined by the consistency and rate at which they produced at the highest level.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#career-profile-comparison",
+    "href": "analysis.html#career-profile-comparison",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "Career profile comparison",
+    "text": "Career profile comparison\nThe strongest candidates usually separate themselves not only by raw volume, but by the blend of output and efficiency. The next chart compares total goals against goals per active year, with open-play share shaping the size of each point.\n\n\n\n\n\n\n\n\n\nScoring patterns also change across eras, and that matters in a historical debate. The next chart shows how international goal volume has shifted over time, reminding us that the comparison is not taking place in a single static context.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Who Is the Greatest International Striker of All Time?"
+    ]
+  },
+  {
+    "objectID": "analysis.html#the-composite-model-brings-the-evidence-together",
+    "href": "analysis.html#the-composite-model-brings-the-evidence-together",
+    "title": "Who Is the Greatest International Striker of All Time?",
+    "section": "The composite model brings the evidence together",
+    "text": "The composite model brings the evidence together\nThe final step is to combine the signals into a single framework. The model used here weights three elements: total goals, open-play share, and efficiency. It does not pretend to capture every nuance of the sport, but it provides a structured way to compare candidates on the same terms.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nComposite ranking from the weighted model using total volume, open-play share, and efficiency.\n\n\n\n\n\n\n\n\n\n\nscorer\nteam\ntotal_goals\nopen_play_share\ngoals_per_year\nmodel_score_pct\n\n\n\n\nCristiano Ronaldo\nPortugal\n124\n82.3\n5.64\n81.3\n\n\nRomelu Lukaku\nBelgium\n67\n89.6\n6.09\n63.8\n\n\nHarry Kane\nEngland\n75\n68.0\n7.50\n63.7\n\n\nErling Haaland\nNorway\n53\n90.6\n7.57\n62.6\n\n\nSaid Bayazid\nSyria\n11\n100.0\n11.00\n58.7\n\n\nSándor Kocsis\nHungary\n11\n100.0\n11.00\n58.7\n\n\nYaqoob Juma Al-Mukhaini\nOman\n11\n100.0\n11.00\n58.7\n\n\nAli Daei\nIran\n49\n83.7\n7.00\n57.7\n\n\n\nThe ranking is the clearest summary of the evidence assembled here. It does not eliminate debate, but it gives the discussion a firmer foundation. In a category defined by opinion and memory, the data provides a more rigorous way to judge who truly stands above the rest.\nThis is the culmination of the analysis: a model that does not simply reward the raw leader, but also gives credit to players who scored in open play and stayed productive across their international careers.",
     "crumbs": [
       "Home",
       "Report",
@@ -74,38 +203,22 @@
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Greatest International Striker",
     "section": "",
-    "text": "This project is a sports analytics investigation that asks a focused question: who is the greatest international soccer striker of all time?\n\n\nThe dataset records every international goal by scorer, including:\n\nmatch date,\nnational team,\nscorer name,\ngoal minute,\npenalty status,\ngoal type,\nyear and decade.\n\nEach row is one goal, which means the analysis is built from the goals themselves rather than from match summaries.\n\n\n\nThe report evaluates the candidates with a professional lens:\n\nraw scoring volume,\nscoring quality through open-play share,\ncareer consistency and efficiency,\nera context,\na composite GOAT ranking model.\n\n\n\n\nGreatest-striker discussions are common in soccer, but a strong analytic argument requires more than a leaderboard. This project emphasizes evidence, transparency, and the limits of the available data.\n\n\n\nThe current dataset does not include every context needed for a final historical judgement:\n\nminutes played,\nnumber of caps,\nopponent strength,\nmatch importance.\n\nThose are valuable next steps for a deeper version of this project."
+    "text": "Who Is the Greatest International Soccer Striker of All Time?\nThe greatest-striker debate is usually shaped by reputation and nostalgia. This project approaches it differently. Using international goal data, it evaluates the strongest candidates through a structured analysis of scoring volume, scoring style, efficiency, and career durability.\nRead the analysis\n\n\n\nWhy this question matters\nThe central question is not simply who scored the most goals. It is who built the strongest all-around case across the full scope of an international career.\n\n\nWhat the site examines\nThe analysis looks at raw totals, open-play production, efficiency over active years, and the broader structure of a striker’s career. The goal is to move the debate from opinion toward evidence.\n\n\n\n\n\n\n\n\nNote\n\n\n\nThis site is designed to feel like a published analytics feature: concise, confident, and grounded in the data."
   },
   {
-    "objectID": "about.html#what-the-data-contains",
-    "href": "about.html#what-the-data-contains",
-    "title": "About",
-    "section": "",
-    "text": "The dataset records every international goal by scorer, including:\n\nmatch date,\nnational team,\nscorer name,\ngoal minute,\npenalty status,\ngoal type,\nyear and decade.\n\nEach row is one goal, which means the analysis is built from the goals themselves rather than from match summaries."
-  },
-  {
-    "objectID": "about.html#how-the-analysis-works",
-    "href": "about.html#how-the-analysis-works",
-    "title": "About",
-    "section": "",
-    "text": "The report evaluates the candidates with a professional lens:\n\nraw scoring volume,\nscoring quality through open-play share,\ncareer consistency and efficiency,\nera context,\na composite GOAT ranking model."
-  },
-  {
-    "objectID": "about.html#why-this-matters",
-    "href": "about.html#why-this-matters",
-    "title": "About",
-    "section": "",
-    "text": "Greatest-striker discussions are common in soccer, but a strong analytic argument requires more than a leaderboard. This project emphasizes evidence, transparency, and the limits of the available data."
-  },
-  {
-    "objectID": "about.html#what-is-not-shown",
-    "href": "about.html#what-is-not-shown",
-    "title": "About",
-    "section": "",
-    "text": "The current dataset does not include every context needed for a final historical judgement:\n\nminutes played,\nnumber of caps,\nopponent strength,\nmatch importance.\n\nThose are valuable next steps for a deeper version of this project."
+    "objectID": "model.html#speaker-notes",
+    "href": "model.html#speaker-notes",
+    "title": "Model",
+    "section": "Speaker notes",
+    "text": "Speaker notes\n\nThis page is intended to show a proper model structure, not to solve the GOAT question.\nThe outcome is a penalty goal, the treatment is home-team scoring, and the covariate is goal minute with era control.\nThe table is the core output: focus on the home-score coefficient and its odds ratio.\nThe chart illustrates how the model’s penalty probability changes over a match timeline for home vs. away scoring teams.",
+    "crumbs": [
+      "Home",
+      "Report",
+      "Model"
+    ]
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – GOAT Striker Analysis</title>
+<title>About the Project – The Greatest International Striker</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">GOAT Striker Analysis</span>
+    <span class="navbar-title">The Greatest International Striker</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -100,6 +100,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Analysis</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./model.html"> 
+<span class="menu-text">Model</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -114,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">About</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">About the Project</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -141,6 +145,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Who Is the Greatest International Striker of All Time?</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Model</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -154,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">About the Project</h1>
 </div>
 
 
@@ -171,48 +181,50 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about-this-project" class="level1">
-<h1>About this Project</h1>
-<p>This project is a sports analytics investigation that asks a focused question: who is the greatest international soccer striker of all time?</p>
-<section id="what-the-data-contains" class="level2">
-<h2 class="anchored" data-anchor-id="what-the-data-contains">What the data contains</h2>
-<p>The dataset records every international goal by scorer, including:</p>
-<ul>
-<li>match date,</li>
-<li>national team,</li>
-<li>scorer name,</li>
-<li>goal minute,</li>
-<li>penalty status,</li>
-<li>goal type,</li>
-<li>year and decade.</li>
-</ul>
-<p>Each row is one goal, which means the analysis is built from the goals themselves rather than from match summaries.</p>
+<section id="about-the-project" class="level1">
+<h1>About the Project</h1>
+<p>This website is the published result of an independent data science project focused on one of soccer’s most persistent debates: who is the greatest international striker of all time?</p>
+<section id="why-the-project-exists" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-project-exists">Why the project exists</h2>
+<p>The question is simple to ask and difficult to answer. Traditional discussions often hinge on reputation, era, or personal preference. This project instead uses structured evidence from international goal data to evaluate the strongest candidates across several measurable dimensions.</p>
 </section>
-<section id="how-the-analysis-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-analysis-works">How the analysis works</h2>
-<p>The report evaluates the candidates with a professional lens:</p>
+<section id="what-the-dataset-contains" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-dataset-contains">What the dataset contains</h2>
+<p>The dataset records international goals with enough detail to support a meaningful comparison of scoring profiles. Each row captures a single goal and includes fields such as:</p>
+<ul>
+<li>the date of the match,</li>
+<li>the national team,</li>
+<li>the scorer,</li>
+<li>the minute of the goal,</li>
+<li>whether the goal came from a penalty,</li>
+<li>the goal type,</li>
+<li>the year and decade.</li>
+</ul>
+<p>That structure makes it possible to study not only who scored the most, but how those goals were produced.</p>
+</section>
+<section id="how-the-analysis-is-built" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-analysis-is-built">How the analysis is built</h2>
+<p>The site evaluates the leading candidates through a combination of:</p>
 <ul>
 <li>raw scoring volume,</li>
-<li>scoring quality through open-play share,</li>
-<li>career consistency and efficiency,</li>
-<li>era context,</li>
-<li>a composite GOAT ranking model.</li>
+<li>open-play share as a measure of scoring quality,</li>
+<li>efficiency across active years,</li>
+<li>career longevity and consistency,</li>
+<li>a composite model that weighs those signals together.</li>
 </ul>
+<p>This is not a fully comprehensive historical audit. It is a disciplined statistical framework for comparing elite international strikers in a transparent way.</p>
 </section>
-<section id="why-this-matters" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-matters">Why this matters</h2>
-<p>Greatest-striker discussions are common in soccer, but a strong analytic argument requires more than a leaderboard. This project emphasizes evidence, transparency, and the limits of the available data.</p>
-</section>
-<section id="what-is-not-shown" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-not-shown">What is not shown</h2>
-<p>The current dataset does not include every context needed for a final historical judgement:</p>
+<section id="what-the-project-does-and-does-not-claim" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-project-does-and-does-not-claim">What the project does and does not claim</h2>
+<p>The analysis is designed to sharpen the discussion rather than settle it with absolute certainty. The available data provides a strong foundation, but it cannot capture every layer of context that shapes a historical judgment.</p>
+<p>The current dataset does not include factors such as:</p>
 <ul>
 <li>minutes played,</li>
-<li>number of caps,</li>
+<li>caps earned,</li>
 <li>opponent strength,</li>
 <li>match importance.</li>
 </ul>
-<p>Those are valuable next steps for a deeper version of this project.</p>
+<p>Those omissions matter, and they are important limitations. Even so, the project offers a credible and defensible first look at the question through a modern analytics lens.</p>
 
 
 </section>

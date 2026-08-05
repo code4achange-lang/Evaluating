@@ -1,13 +1,12 @@
 ---
 title: "Who Is the Greatest International Striker of All Time?"
-subtitle: "A five-minute presentation of the case"
+subtitle: "An evidence-based analysis of the international scoring debate"
 author: "Dhruv Punia"
 date: today
 format:
   html:
     theme: cosmo
     toc: true
-runtime: shiny
 ---
 
 ```{r}
@@ -18,7 +17,6 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 library(forcats)
-library(shiny)
 
 clean_goals <- read_csv("goalscorers_cleaned.csv", show_col_types = FALSE)
 
@@ -77,7 +75,13 @@ goat_model <- scorer_summary |>
   slice_head(n = 8)
 ```
 
-## Opening visual
+The debate over the greatest international striker is usually framed by memory, reputation, and personal preference. That tradition is understandable, but it leaves a major gap. A serious historical claim should be tested against measurable evidence.
+
+This project uses international goal data to build a more disciplined case. It evaluates the leading candidates on three central questions: how much they scored, how they scored, and how efficiently they sustained elite production over time.
+
+## The scoring leaderboard
+
+The starting point is straightforward. Raw goal totals establish the shortlist of players who deserve serious consideration. The leaderboard does not answer the question by itself, but it provides the first layer of evidence.
 
 ```{r}
 #| echo: false
@@ -94,8 +98,8 @@ ggplot(opening_plot, aes(x = fct_reorder(scorer, total_goals), y = total_goals))
   theme_minimal(base_size = 13) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
   labs(
-    title = "The first impression: who leads the all-time scoring list?",
-    subtitle = "This chart shows the biggest goal totals at a glance",
+    title = "The scoring leaderboard is the starting point",
+    subtitle = "International goal totals identify the names that merit deeper analysis",
     x = NULL,
     y = "Total Goals"
   ) +
@@ -107,45 +111,9 @@ ggplot(opening_plot, aes(x = fct_reorder(scorer, total_goals), y = total_goals))
   )
 ```
 
-Who already stands out in the international scoring race? This chart gives the audience the first impression: the biggest names are visible immediately, and the takeaway is simple—raw totals create the shortlist, but they do not yet prove greatness. That is the bridge to the next question: if goals alone are not enough, what else should we measure?
+This chart shows the players with the highest international goal totals. It is a useful first pass because it identifies who belongs in the debate, but it does not prove who was the strongest overall.
 
-# 1. Introduction / Hook
-
-Who really deserves the label “greatest international striker”? The dataset gives us a simple starting point: every international goal is evidence, and the strongest case needs more than a list of names. The takeaway is that this project is not just ranking scorers—it is testing whether the strongest all-around striker also leaves the clearest statistical footprint. That leads directly to the next chart, where the raw leaderboard becomes the first layer of the story.
-
-# 2. Why total goals is not enough
-
-Does the top scorer also have the strongest GOAT claim? The leaderboard makes the favorites obvious, but it also reminds us that totals can hide very different scoring styles. The key takeaway is that the raw goals leader is not automatically the best all-around striker, and the next chart asks whether the way those goals were produced matters.
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-ranked_goals <- scorer_summary |>
-  arrange(desc(total_goals)) |>
-  slice_head(n = 10)
-
-ggplot(ranked_goals, aes(x = fct_reorder(scorer, total_goals), y = total_goals)) +
-  geom_col(fill = "#1F4E79", width = 0.75) +
-  geom_text(aes(label = total_goals), hjust = -0.1, size = 3, color = "#1F4E79") +
-  coord_flip() +
-  theme_minimal(base_size = 13) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
-  labs(
-    title = "Top International Goalscorers",
-    subtitle = "Raw goals are the first evidence, not the whole story",
-    x = NULL,
-    y = "Total Goals"
-  ) +
-  theme(
-    plot.title = element_text(face = "bold"),
-    plot.subtitle = element_text(color = "#4A4A4A"),
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank()
-  )
-```
-
-The next question is practical: how many of those goals came from penalties, and how many came from open play? The dataset does not capture every match context, so the next sections add the metrics that make the case stronger.
+The next step is to test those totals against how the goals were produced.
 
 ```{r}
 #| echo: false
@@ -155,18 +123,22 @@ knitr::kable(
     select(scorer, team, total_goals, active_years, open_play_share, penalty_share) |>
     arrange(desc(total_goals)) |>
     head(8),
-  caption = "Top international scorers in the dataset, with goal type and career context."
+  caption = "Leading international scorers by total goals, with scoring style and career context."
 )
 ```
 
-# 3. Measuring scoring ability
+## Goal production reveals the profile
 
-Which strikers earned their goals in the most demanding way? Open-play scoring is a strong signal because it reflects movement, timing, and finishing under real match pressure. The takeaway is that a striker with a high open-play share looks more like a complete attacker than someone who relies heavily on penalties, and that leads naturally to the next question: how efficiently did they produce goals over time?
+A striker’s value is not defined only by how many goals are scored. It is also shaped by how those goals are created. Open-play goals are often the strongest signal of complete attacking quality because they require movement, timing, and a higher level of game involvement than penalties alone.
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+ranked_goals <- scorer_summary |>
+  arrange(desc(total_goals)) |>
+  slice_head(n = 10)
+
 top_goal_type <- goal_type_by_scorer |>
   filter(scorer %in% ranked_goals$scorer[1:8]) |>
   mutate(goal_type = ifelse(goal_type == "Open Play", "Open Play", goal_type))
@@ -177,8 +149,8 @@ ggplot(top_goal_type, aes(x = fct_reorder(scorer, total_goals), y = share, fill 
   scale_y_continuous(labels = scales::percent_format()) +
   scale_fill_manual(values = c("Open Play" = "#C0392B", "Penalty" = "#F39C12", "Other" = "#7F8C8D")) +
   labs(
-    title = "How Leading Scorers Built Their Goals",
-    subtitle = "Open-play contribution versus penalties and other goal types",
+    title = "How the leading scorers built their totals",
+    subtitle = "Open-play production offers a stronger signal of full attacking quality",
     x = NULL,
     y = "Share of Goals",
     fill = "Goal Type"
@@ -191,11 +163,11 @@ ggplot(top_goal_type, aes(x = fct_reorder(scorer, total_goals), y = share, fill 
   )
 ```
 
-In a live presentation, this is the point where the audience sees the difference between volume and quality. A striker with a high penalty share may still be great, but their profile is different from one whose goals come from active build-up and attacking movement.
+This chart breaks each leader’s goals into open play, penalties, and other types. It shows whether a player’s total came mostly from active attacking play or from spot kicks, which changes how we interpret the raw scores.
 
-# 4. Measuring efficiency
+## Efficiency separates volume from sustained excellence
 
-How efficiently did the top scorers produce goals across their active years? This chart rewards players who delivered at a high rate without needing decades of appearances. The takeaway is that efficiency helps separate sustained elite output from simply playing longer, and it sets up the next comparison across eras.
+The next layer is efficiency. A player who produced goals at a high rate over fewer active years can be just as compelling as a career-long scorer who accumulated totals over a longer span. In that sense, goals per active year helps measure how efficiently a striker turned opportunity into output.
 
 ```{r}
 #| echo: false
@@ -211,8 +183,8 @@ ggplot(efficiency, aes(x = fct_reorder(scorer, goals_per_year), y = goals_per_ye
   coord_flip() +
   scale_fill_gradient(low = "#4E79A7", high = "#F28E2B") +
   labs(
-    title = "Scoring Efficiency Among Leading Strikers",
-    subtitle = "Goals per active international year is a proxy for striker productivity",
+    title = "Efficiency sharpens the comparison",
+    subtitle = "Goals per active international year captures productivity over time",
     x = NULL,
     y = "Goals per Active Year",
     fill = "Total Goals"
@@ -225,58 +197,28 @@ ggplot(efficiency, aes(x = fct_reorder(scorer, goals_per_year), y = goals_per_ye
   )
 ```
 
-A modern presentation makes this point quickly: a player who averages a very high goal rate is producing elite output, even if they played fewer seasons than the raw goals leader.
+This chart measures goals per active year, which highlights players who scored efficiently rather than just accumulating totals over a long career. It helps separate consistent, high-rate scorers from those who built their numbers slowly.
 
-# 5. Comparing eras
+## Career profile comparison
 
-Do scoring patterns change by decade? The answer is yes, and that matters because the GOAT conversation is really a comparison across different football eras. The takeaway is that context matters, so the next chart compares the scoring profiles of the main candidates rather than treating every career as if it happened in the same environment.
-
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-decade_summary <- decade_summary |>
-  filter(!is.na(decade))
-
-ggplot(decade_summary, aes(x = decade, y = goals)) +
-  geom_line(color = "#2C3E50", size = 1.2) +
-  geom_point(color = "#E74C3C", size = 3) +
-  scale_x_continuous(breaks = decade_summary$decade) +
-  theme_minimal(base_size = 13) +
-  labs(
-    title = "International Goal Volume by Decade",
-    subtitle = "The dataset records changing scoring trends across eras",
-    x = "Decade",
-    y = "Goals"
-  ) +
-  theme(
-    plot.title = element_text(face = "bold"),
-    panel.grid.minor = element_blank()
-  )
-```
-
-This is the moment to remind the audience that international scoring is not static. When we compare candidates, we are also comparing different calendars, match rhythms, and tournament schedules.
-
-# 6. Comparing scoring profiles
-
-Do the strongest scorers look alike, or do they have distinct styles? Some players are volume-driven, others are more efficient, and some combine both. The takeaway is that the best striker may not be the one with the biggest total alone, and the next step is to combine these signals into one model.
+The strongest candidates usually separate themselves not only by raw volume, but by the blend of output and efficiency. The next chart compares total goals against goals per active year, with open-play share shaping the size of each point.
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-profile_compare <- scorer_summary |>
+profile_plot <- scorer_summary |>
   arrange(desc(total_goals)) |>
   slice_head(n = 12)
 
-ggplot(profile_compare, aes(x = goals_per_year, y = total_goals, size = open_play_share, color = career_span)) +
-  geom_point(alpha = 0.8) +
-  geom_text(aes(label = scorer), vjust = -0.7, size = 3, check_overlap = TRUE) +
-  scale_color_gradient(low = "#7FB3D5", high = "#CB4335") +
+ggplot(profile_plot, aes(x = goals_per_year, y = total_goals, size = open_play_share, color = career_span)) +
+  geom_point(alpha = 0.85) +
+  geom_text(aes(label = scorer), vjust = -0.8, size = 3, check_overlap = TRUE) +
+  scale_color_gradient(low = "#7fb3d5", high = "#c0392b") +
   theme_minimal(base_size = 13) +
   labs(
-    title = "Scoring Volume vs. Efficiency",
-    subtitle = "Bigger points mean a higher open-play share",
+    title = "Volume and efficiency define the strongest profiles",
+    subtitle = "Larger points indicate a higher open-play share",
     x = "Goals per Active Year",
     y = "Total Goals",
     color = "Career Span",
@@ -284,51 +226,39 @@ ggplot(profile_compare, aes(x = goals_per_year, y = total_goals, size = open_pla
   )
 ```
 
+This scatter plot combines volume, efficiency, open-play share, and career span to show the most balanced profiles. It makes it easy to spot which players were strong across multiple dimensions.
+
+The next chart then adds historical context by showing how international scoring changed over time.
+
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-career_spread <- scorer_summary |>
-  arrange(desc(total_goals)) |>
-  slice_head(n = 10)
+decade_chart <- decade_summary |>
+  filter(!is.na(decade))
 
-ggplot(career_spread, aes(x = fct_reorder(scorer, career_span), y = career_span, fill = total_goals)) +
-  geom_col(width = 0.75) +
-  coord_flip() +
-  scale_fill_gradient(low = "#D5E8D4", high = "#6C8EBF") +
+ggplot(decade_chart, aes(x = decade, y = goals)) +
+  geom_line(color = "#1f4e79", size = 1.1) +
+  geom_point(color = "#c0392b", size = 2.5) +
   theme_minimal(base_size = 13) +
   labs(
-    title = "Career Length Among Leading Scorers",
-    subtitle = "Longer careers can build volume, but they also test consistency",
-    x = NULL,
-    y = "Career Span (Years)"
+    title = "Goal volume shifts across eras",
+    subtitle = "The dataset captures how scoring patterns have changed over time",
+    x = "Decade",
+    y = "Goals"
   )
 ```
 
-```{r}
-#| echo: false
-#| results: asis
-#| warning: false
+This chart provides historical context by showing how international scoring totals changed by decade. It helps explain whether a player’s numbers came from a more goal-rich era or a tougher scoring environment.
 
-knitr::kable(
-  profile_compare |>
-    select(scorer, total_goals, goals_per_year, open_play_share, career_span) |>
-    arrange(desc(total_goals)),
-  caption = "Scoring profile comparison for the top international scorers."
-)
-```
+## The composite model brings the evidence together
 
-This is the point where the audience sees the trade-off clearly: some players built huge totals over long careers, while others were more efficient and more explosive in shorter windows. That distinction matters when we judge the strongest all-around striker.
-
-# 7. Build your own GOAT model
-
-How can the same dataset be turned into a simple GOAT model? By weighting volume, scoring quality, and efficiency differently, we can test which profile looks strongest under a balanced framework. The takeaway is that this makes the debate more transparent, and the next chart turns that logic into a static ranking.
+The final step is to combine the signals into a single framework. The model used here weights three elements: total goals, open-play share, and efficiency. It does not pretend to capture every nuance of the sport, but it provides a structured way to compare candidates on the same terms.
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-
 volume_weight <- 0.45
 open_play_weight <- 0.30
 efficiency_weight <- 0.25
@@ -348,69 +278,68 @@ interactive_ranking <- scorer_summary |>
   arrange(desc(model_score)) |>
   mutate(model_score_pct = round(model_score * 100, 1))
 
-best_player <- interactive_ranking$scorer[1]
-best_team <- interactive_ranking$team[1]
-best_score <- interactive_ranking$model_score_pct[1]
-
-cat(paste0("Best player for the current weights: ", best_player, " (", best_team, ") with a score of ", best_score, ".\n"))
+goat_ranking <- interactive_ranking |>
+  mutate(model_score = round(model_score * 100, 1))
 ```
-
-```{r}
-#| echo: false
-#| results: asis
-#| warning: false
-
-knitr::kable(
-  interactive_ranking |>
-    select(scorer, team, total_goals, open_play_share, goals_per_year, model_score_pct) |>
-    head(8),
-  caption = "Ranking from the custom GOAT model using your selected weights."
-)
-```
-
-This is the interactive moment of the presentation: the same data can be evaluated from different perspectives depending on whether the audience values raw totals, open-play quality, or efficiency most.
-
-# 8. Static GOAT ranking model
-
-What happens when we combine those factors into one composite score? The model rewards players who bring both output and balance rather than relying on a single strength. The takeaway is that this final ranking is the clearest summary of the evidence so far, and it sets up the short answer.
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
-goat_ranking <- goat_model |>
-  mutate(model_score = round(model_score * 100, 1))
+ranking_chart <- interactive_ranking |>
+  slice_head(n = 8)
 
-ggplot(goat_ranking, aes(x = fct_reorder(scorer, model_score), y = model_score, fill = goals_per_year)) +
-  geom_col(width = 0.75) +
+ggplot(ranking_chart, aes(x = fct_reorder(scorer, model_score_pct), y = model_score_pct)) +
+  geom_col(fill = "#1f4e79", width = 0.8) +
   coord_flip() +
-  scale_fill_gradient(low = "#A6CEE3", high = "#1F78B4") +
-  labs(
-    title = "Composite GOAT Score for Top Candidates",
-    subtitle = "Volume, open-play quality, and efficiency combine into a final ranking",
-    x = NULL,
-    y = "GOAT Score",
-    fill = "Goals per Year"
-  ) +
   theme_minimal(base_size = 13) +
-  theme(
-    plot.title = element_text(face = "bold"),
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank()
+  labs(
+    title = "The weighted model produces a clear ranking",
+    subtitle = "Higher scores reflect stronger combined volume, quality, and efficiency",
+    x = NULL,
+    y = "Composite Score"
   )
 ```
+
+This final ranking combines volume, open-play quality, and efficiency into one ordered list. It makes the evaluation more transparent by showing how those three factors are weighted together.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+profile_quality <- scorer_summary |>
+  arrange(desc(total_goals)) |>
+  slice_head(n = 8)
+
+ggplot(profile_quality, aes(x = fct_reorder(scorer, open_play_share), y = open_play_share, fill = penalty_share)) +
+  geom_col(width = 0.8) +
+  coord_flip() +
+  scale_fill_gradient(low = "#f7dc6f", high = "#c0392b") +
+  theme_minimal(base_size = 13) +
+  labs(
+    title = "Open-play share separates elite profiles",
+    subtitle = "A higher open-play share points to a more complete scoring profile",
+    x = NULL,
+    y = "Open-Play Share (%)",
+    fill = "Penalty Share (%)"
+  )
+```
+
+This chart isolates the quality signal behind the volume totals. A high open-play share suggests that the player’s goal output came from active attacking play rather than from penalties, which matters when comparing players with similar raw totals. It gives readers a direct way to assess how “complete” each scorer’s profile looks.
 
 ```{r}
 #| echo: false
 #| results: asis
 #| warning: false
-
 knitr::kable(
-  goat_ranking |>
-    select(scorer, team, total_goals, active_years, open_play_share, goals_per_year, model_score),
-  caption = "Top strikers ranked by the composite GOAT model."
+  interactive_ranking |>
+    select(scorer, team, total_goals, open_play_share, goals_per_year, model_score_pct) |>
+    head(8),
+  caption = "Composite ranking from the weighted model using total volume, open-play share, and efficiency."
 )
 ```
+
+The ranking is the clearest summary of the evidence assembled here. It does not eliminate debate, but it gives the discussion a firmer foundation. In a category defined by opinion and memory, the data provides a more rigorous way to judge who truly stands above the rest.
 
 This is the culmination of the analysis: a model that does not simply reward the raw leader, but also gives credit to players who scored in open play and stayed productive across their international careers.
 
@@ -431,7 +360,7 @@ cat(paste0("Our pick for the best international striker in this dataset: ", top_
 - It combines a high raw goal total with a strong open-play share and good efficiency across active years.
 - The pick is not just the raw scorer — the model rewards balanced profiles.
 
-If you want the raw leaderboard, the composite chart above shows how other top candidates compare.
+The charts above show how the leading candidates separate on volume, scoring style, and efficiency, which gives the debate a stronger evidentiary foundation.
 
 ## Limitations and next steps
 

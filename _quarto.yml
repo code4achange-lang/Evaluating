@@ -3,13 +3,15 @@ project:
   output-dir: docs
 
 website:
-  title: "GOAT Striker Analysis"
+  title: "The Greatest International Striker"
   navbar:
     left:
       - text: "Home"
         href: index.qmd
       - text: "Analysis"
         href: analysis.qmd
+      - text: "Model"
+        href: model.qmd
       - text: "About"
         href: about.qmd
         file: about.qmd
@@ -19,6 +21,7 @@ website:
       - section: "Report"
         contents:
           - analysis.qmd
+          - model.qmd
 format:
   html:
     theme: cosmo
