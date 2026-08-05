@@ -9,7 +9,7 @@ format:
 ::: {.hero .p-4 .p-md-5 .rounded-4 .border .shadow-sm style="background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%); color: white;"}
 # Who Is the Greatest International Soccer Striker of All Time?
 
-The greatest-striker debate is usually shaped by reputation and nostalgia. This project approaches it differently. Using international goal data, it evaluates the strongest candidates through a structured analysis of scoring volume, scoring style, efficiency, and career durability.
+The greatest-striker debate often leans on reputation and nostalgia. This project uses international goal data to compare the top candidates on volume, style, efficiency, and career consistency.
 
 [Read the analysis](analysis.html){.btn .btn-light .btn-lg}
 :::
@@ -18,16 +18,12 @@ The greatest-striker debate is usually shaped by reputation and nostalgia. This 
 ::: {.g-col-12 .g-col-md-6}
 ### Why this question matters
 
-The central question is not simply who scored the most goals. It is who built the strongest all-around case across the full scope of an international career.
+It is not just about most goals. It is about who built the strongest case across a full international career.
 :::
 
 ::: {.g-col-12 .g-col-md-6}
 ### What the site examines
 
-The analysis looks at raw totals, open-play production, efficiency over active years, and the broader structure of a striker's career. The goal is to move the debate from opinion toward evidence.
+The analysis compares totals, open-play scoring, efficiency, and career shape to make the debate more evidence-based.
 :::
-:::
-
-::: {.callout-note}
-This site is designed to feel like a published analytics feature: concise, confident, and grounded in the data.
 :::
